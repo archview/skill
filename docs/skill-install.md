@@ -2,6 +2,14 @@
 
 There are many AI apps or channels for you to install an AI skill. Pick whichever of these matches how you use AI. Here are some for your reference.
 
+## Grok (SpaceXAI)
+
+In grok.com (browser or desktop)
+
+1. Go to **Plugins** (left-side menubar), then open **Skills** tab.
+2. Click **New Skill** button.
+3. Click **Upload skill file** and drop`archview.zip`onto the upload panel.
+
 ## Claude AI
 
 #### Claude app or claude.ai
