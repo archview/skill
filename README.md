@@ -48,7 +48,7 @@ Here is a very brief guide:
 
 > You can have different detail-level views. For example, a lean-mode view with fewer elements, a succinct outline view, a view with detailed architectural analysis, or a full set of model views.
 
-For a bit more detailed step-by-step instruction, see this [link ](step-by-step-instructions.md).
+For a bit more detailed step-by-step instruction, see this [link ](docs/step-by-step-instructions.md).
 
 ## Samples
 
