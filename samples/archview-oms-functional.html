@@ -1,0 +1,940 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="ArchView is an Enterprise Solution Architecture (ESA) modeling tool that includes a list of practical elements, simple yet systematic for various IT architectures. It's a unified architecture model that covers AI, Software Architecture and Design (UML), EA (ArchiMate), Integration & Scalability, Business, and Infrastructure solutions at an abstraction level of ESA. It facilitates different stakeholders to model enterprise solutions for clear objective mapping and reduced cost of change."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESA ArchView</title>
+
+    <style>
+      .group-label {
+        font-size: 18px;
+font-family:         Segoe UI, Arial, sans-serif;
+
+        text-anchor: left;
+        fill: #4682b4;
+      }
+
+      .group-box {
+      /*  fill: red; */
+
+        stroke-width: 2;
+
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .node-label {
+        fill: black;
+
+        text-anchor: middle;
+
+        font-family: Arial, Helvetica, sans-serif;
+        height: auto;
+      }
+
+      .edge {
+        fill: none;
+        /* none */
+        stroke: gray;
+        /* #555 */
+        stroke-width: 1;
+      }
+p{
+  margin-top:0px;
+  margin-bottom:0px;
+  padding-bottom:3px;
+}
+      table {
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        width:96%
+       
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 3px 6px;
+        text-align: left;
+        vertical-align:top;
+      }
+      th {
+        background: #eee;
+      }
+      tr:nth-child(even){
+        background:#fafafa;
+      }
+
+    </style>
+
+    <link rel="icon" type="image/x-icon" href="https://diagram.a-esa.com/archiview/sa-favicon.ico" />
+  </head>
+
+  <body>
+    <div class="topbar">
+
+ 
+      <button
+        class="tool-btn"
+        id="zoomIn"
+        data-tooltip="Zoom in (+) the arch view"
+      >
+        (+)
+      </button>
+      <button
+        class="tool-btn"
+        id="zoomOut"
+        data-tooltip="Zoom out (-) the arch view "
+      >
+        (-)
+      </button>
+      <button
+        class="tool-btn"
+        id="resetZoom"
+        data-tooltip="Reset the zoom by default"
+      >
+        Fit
+      </button>
+      <button class="tool-btn" id="div1">|</button>
+      <button
+        class="tool-btn"
+        id="saveAsPNG"
+        data-tooltip="Save the arch view as .png image"
+      >
+        Image
+      </button>
+      <button
+        class="tool-btn"
+        id="copyToClipboard"
+        data-tooltip="Copy the arch view to clipboard"
+      >
+        Copy
+      </button>
+      <button class="tool-btn" id="div1">|</button>
+      <button
+        class="tool-btn"
+        id="exportGraphToJSON"
+        data-tooltip="Export as .json file for iteration and record"
+      >
+        <i>Data</i>
+      </button>
+  
+      <button
+        class="tool-btn"
+        id="exportGraphToXML"
+        data-tooltip="Export the arch view as .xml file for customization"
+      >
+      <i>Export</i>
+      </button>
+      
+
+<button class="tool-btn" id="div1">|</button>
+
+<button
+class="tool-btn"
+id="saveAsPDF"
+data-tooltip="Save the arch view page as pdf report file"
+>
+Report
+</button>
+
+
+
+ 
+  
+
+      
+<button class="tool-btn" id="div1">|</button>
+<button class="tool-btn" id="toggle" data-tooltip="Toggle display mode: Text/View.">Properties</button>
+
+
+ 
+    </div>
+
+ 
+
+    <div  style="z-index:1; ">
+    <svg id="graph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2860.8332595825195 5184.66650390625">
+    
+    <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" stroke="transparent">
+    <path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+    </marker>
+    </defs> 
+    
+    <g transform="translate(50,50)"><g><rect id="g1" x="44.166664123535156" y="585.6666412353516" width="899.1666488647461" height="1133.8332977294922" class="group-box" stroke="#555" style="solid" fill="honeydew" /><rect id="g2" x="1679.166618347168" y="2091.1665802001953" width="482.49999237060547" height="523.6666564941406" class="group-box" stroke="#555" style="solid" fill="honeydew" /><rect id="g3" x="1069.9999694824219" y="359.49998474121094" width="1091.6666412353516" height="513.6666564941406" class="group-box" stroke="#555" style="solid" fill="honeydew" /><rect id="g4" x="2288.333267211914" y="212.16665649414062" width="418.3333282470703" height="769.3333129882812" class="group-box" stroke="#555" style="solid" fill="honeydew" /><rect id="g5" x="1406.6666259765625" y="2652.4998931884766" width="754.9999847412109" height="268" class="group-box" stroke="#555" style="solid" fill="honeydew" /><rect id="g6" x="733.3333129882812" y="3094.833206176758" width="546.6666564941406" height="258" class="group-box" stroke="#555" style="solid" fill="honeydew" /><rect id="g7" x="44.166664123535156" y="3567.166519165039" width="1844.9999542236328" height="513.6666564941406" class="group-box" stroke="#555" style="dotted" fill="white" stroke-dasharray="6 4" /><rect id="g8" x="1679.166618347168" y="1091.4999542236328" width="210" height="785.3333129882812" class="group-box" stroke="#555" style="dotted" fill="ghostwhite" stroke-dasharray="6 4" /></g><g><path d="M 1708.0012011498306 1091.4999542236328 L 1665.6511630276675 873.1666412353516" class="edge" id="e1" source="g8" target="g3" link="group" marker-end="url(#arrow)" /><text x="1686.8261820887492" y="978.3332977294922" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e1">governs</text><path d="M 1236.0054408847436 3094.833206176758 L 1545.9387179361715 2920.4998931884766" class="edge" id="e2" source="g6" target="g5" link="group" marker-end="url(#arrow)" /><text x="1390.9720794104576" y="3003.666549682617" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e2">credit basis</text></g><g><path d="M 194.16666412353516 1585.4999389648438 L 322.49999237060547 1585.4999389648438" class="edge" id="e3" source="n1" target="n2" link="" marker-end="url(#arrow)" /><text x="258.3333282470703" y="1581.4999389648438" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e3">submits</text><path d="M 402.49999237060547 1585.4999389648438 L 530.8333206176758 1585.4999389648438" class="edge" id="e4" source="n2" target="n3" link="" marker-end="url(#arrow)" /><text x="466.6666564941406" y="1581.4999389648438" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e4">validates</text><path d="M 583.2786109749634 1545.4999389648438 L 830.8880226309936 749.6666412353516" class="edge" id="e5" source="n3" target="n4" link="" marker-end="url(#arrow)" /><text x="707.0833168029785" y="1143.5832901000977" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e5">writes</text><path d="M 577.5067900887473 1625.4999389648438 L 836.6598435172098 3178.833206176758" class="edge" id="e6" source="n3" target="n21" link="" marker-end="url(#arrow)" /><text x="707.0833168029785" y="2398.166572570801" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e6">prices</text><path d="M 883.3333129882812 3218.833206176758 L 1139.9999694824219 3218.833206176758" class="edge" id="e7" source="n21" target="n22" link="" /><text x="1011.6666412353516" y="3214.833206176758" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e7">reads</text><path d="M 610.8333206176758 1614.895287492149 L 1749.166618347168 2451.4378881670305" class="edge" id="e8" source="n3" target="n5" link="" marker-end="url(#arrow)" /><text x="1179.9999694824219" y="2029.1665878295898" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e8">checks ATP</text><path d="M 1829.166618347168 2480.833236694336 L 2021.6666107177734 2480.833236694336" class="edge" id="e9" source="n5" target="n8" link="" /><text x="1925.4166145324707" y="2476.833236694336" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e9">reads</text><path d="M 1829.166618347168 2443.304185149053 L 2021.6666107177734 2262.6956317454783" class="edge" id="e10" source="n5" target="n7" link="" /><path d="M 1829.166618347168 2216.63447014955 L 2021.6666107177734 2223.6986902508406" class="edge" id="e11" source="n6" target="n7" link="" marker-end="url(#arrow)" /><text x="1925.4166145324707" y="2216.1665802001953" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e11">updates</text><path d="M 883.3333129882812 709.6666412353516 L 1139.9999694824219 709.6666412353516" class="edge" id="e12" source="n4" target="n9" link="" marker-end="url(#arrow)" /><text x="1011.6666412353516" y="705.6666412353516" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e12">triggers</text><path d="M 1219.9999694824219 682.7953545033283 L 1476.6666259765625 510.3712714732342" class="edge" id="e13" source="n9" target="n10" link="" marker-end="url(#arrow)" /><text x="1348.3332977294922" y="592.5833129882812" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e13">sources</text><path d="M 1522.9611400148929 523.4999847412109 L 1782.8721043088376 2175.1665802001953" class="edge" id="e14" source="n10" target="n6" link="" marker-end="url(#arrow)" /><text x="1652.9166221618652" y="1345.3332824707031" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e14">reserves</text><path d="M 1556.6666259765625 484.96787469056545 L 1749.166618347168 492.0320947918564" class="edge" id="e15" source="n10" target="n11" link="" marker-end="url(#arrow)" /><text x="1652.9166221618652" y="484.49998474121094" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e15">splits</text><path d="M 1829.166618347168 493.49998474121094 L 2021.6666107177734 493.49998474121094" class="edge" id="e16" source="n11" target="n13" link="" marker-end="url(#arrow)" /><text x="1925.4166145324707" y="489.49998474121094" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e16">writes</text><path d="M 1219.9999694824219 713.1715918363046 L 1476.6666259765625 735.6616906343985" class="edge" id="e17" source="n9" target="n12" link="" marker-end="url(#arrow)" /><text x="1348.3332977294922" y="720.4166412353516" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e17">commits</text><path d="M 2101.6666107177734 493.49998474121094 L 2358.333267211914 493.49998474121094" class="edge" id="e18" source="n13" target="n14" link="" marker-end="url(#arrow)" /><text x="2229.9999389648438" y="489.49998474121094" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e18">dispatches</text><path d="M 2438.333267211914 463.29198498027347 L 2566.6665954589844 366.3746562550781" class="edge" id="e19" source="n14" target="n16" link="" marker-end="url(#arrow)" /><text x="2502.499931335449" y="410.8333206176758" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e19">instructs</text><path d="M 2438.333267211914 512.3799842255859 L 2566.6665954589844 572.9533135039063" class="edge" id="e20" source="n14" target="n17" link="" marker-end="url(#arrow)" /><text x="2502.499931335449" y="538.6666488647461" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e20">books</text><path d="M 2421.873757294067 533.4999847412109 L 2583.126105376831 807.4999694824219" class="edge" id="e21" source="n14" target="n15" link="" marker-end="url(#arrow)" /><text x="2502.499931335449" y="666.4999771118164" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e21">records</text><path d="M 1186.4842003406775 749.6666412353516 L 1510.1823951183069 2746.4998931884766" class="edge" id="e22" source="n9" target="n18" link="" marker-end="url(#arrow)" /><text x="1348.3332977294922" y="1744.083267211914" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e22">returns</text><path d="M 1556.6666259765625 2785.032003239122 L 1749.166618347168 2777.9677831378312" class="edge" id="e23" source="n18" target="n19" link="" marker-end="url(#arrow)" /><text x="1652.9166221618652" y="2777.4998931884766" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e23">authorizes</text><path d="M 1829.166618347168 2776.4998931884766 L 2021.6666107177734 2776.4998931884766" class="edge" id="e24" source="n19" target="n20" link="" marker-end="url(#arrow)" /><text x="1925.4166145324707" y="2772.4998931884766" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e24">posts</text><path d="M 1535.7448058184016 2746.4998931884766 L 1770.088438505329 2255.1665802001953" class="edge" id="e25" source="n18" target="n6" link="" marker-end="url(#arrow)" /><text x="1652.9166221618652" y="2496.833236694336" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e25">restocks</text><path d="M 1184.211373678198 749.6666412353516 L 1512.4552217807864 3867.3331756591797" class="edge" id="e26" source="n9" target="n24" link="" marker-end="url(#arrow)" /><text x="1348.3332977294922" y="2304.4999084472656" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e26">publishes</text><path d="M 1556.6666259765625 3875.6022894138473 L 1749.166618347168 3722.8974054103714" class="edge" id="e27" source="n24" target="n23" link="" /><text x="1652.9166221618652" y="3795.2498474121094" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e27">carries</text><path d="M 1556.6666259765625 3913.1313409591303 L 1749.166618347168 3941.035010359229" class="edge" id="e28" source="n24" target="n26" link="" marker-end="url(#arrow)" /><text x="1652.9166221618652" y="3923.0831756591797" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e28">notifies</text><path d="M 158.05136622863 3690.666519165039 L 358.6152902655106 1625.4999389648438" class="edge" id="e29" source="n25" target="n2" link="" /><text x="258.3333282470703" y="2654.0832290649414" text-anchor="middle" font-size="14px" fill="#6366f1" font-style="italic" id="e29">guards</text></g><g><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANGSURBVGhD7ZrNaxNBGMbzD+RkBG2lWr1Yoaai1C7UWLCkNahBoRUF24CmihYpJS221qZqkoPJJSjiF6KgKFEEDdKD6EG8GC/NqeTgIeAhx9xyfO0zzEKyjrub0iazYR54INmdnZnfvjPvLjPrUlJqERWLRUokEjR6doR27+kkt9sthdvb22ho2M/6lsvliHe3fiVTSfL2dNP0XJgevUjQj5X3tPrnqxT+tfqJXn1Is771+/poYuISlctl+7CVSoU07TBdj1ykld/LwkZkc+rBAvmHBu2DxuJ3KTJ/RViZzE4/uU1j4xesIfP5/Fr4NcdE0OjRc0HKZDLmoNHoIt2IXhVW4AQjdyBJchyxTgVP0vO3KWEFTvC3n2+oa99ec0ikZmQuUQVOMR4xHEcsFBBd6CQrSEhBOsQKElKQDrGChBSkQ6wgIQXpECtIaDMhk/dv0q7ODho4ptGJ04NsEQrGghS8UasRTYUEiMezhRmgWv8h1iGju71d7HwoPCKsx8qog+OIhQKiCzfKsdQM60T68VLN8Y9fnrKbgGgjuog4XF3GrpsOCYevnWfRBJToPIBFN8KupYCE/cd9tL1tG1uTMZ7DfD3Y6/3nuF1LA4kkAxDMv+o1JT2KWHWrLl+PpYGEEUU92+qZFcmoY+eO1oGE331+yOYnMinA0P6z1/fYkAU8Iiu6zszSQcJIMGgXcxRw+nEkJgxp3IB6NpukhISxao+IiiKHxw7mLsrYeWGQFhI2W9TGucnpEIus1Qq/1JB2vPz9JXv8wPgtKmMJ6dnqccSOFqKJIYzoGs9ZQmLzdT0ZrVk2vhVhWGM/h+OINTs7Q9HEVM2FIqMMsiHuGhKGLNt9yMj4loDjiJXNZil4ZlhYQbUBpicKDG9Z5nJk/jLF4zFzSMjOHqURSgZIJKI+rZfwzQNH+b9KpRL1HNjP3kZElcGAMhpvKKKyjTAAj/g0KhQK1oC6UPjogI99AYJxbsy4gDL73ygjEHNLkyyC+N6Bd78+4VseTGQ8WqqjJoJshhGIW4sL9oZovUIDRkh+ylQoB/G/cktBmkhByqbx0BgD0x2L32k9yPVKQcqqQCBQM2w3w2iDN9ccsbA0QLw5JaXWl8v1F5+X4FCSL+LnAAAAAElFTkSuQmCC" id="n1" x="114.16666412353516" y="1545.4999389648438" width="80" height="80" prefix="UI" group="g1" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOlSURBVGhD7VrBS5NhGPcf8KaXPFWHNCIdldtCpyTLscqB5EwqTcgZpFbaRlE5DzEP6UGcYSSRNihcBDVCcNRhdMkuehIPHYQOO+7m8Wm/r/cNiTed297n+2T+4HcZY9/v2fM87/t8v/ctOwAjNjY2aHJykobuDFGr57zBQH8fRSIRWltbI/G1/QkE4O/soNq6EzQ40ktPJ4IU+zBl8Nn0Ixp+2Ef1jlNG0IlEYn8Fu7W1RYHATSOA2dcRWv/1ZUciaF+7h5qaXZTJZKwfLES2+S7SRPSxMqCdGP/8nBzOekJ5i5+zHjY3N8nV3GBkRhVELvz6/S01upzW7FVkEFlYSs0rxe+FP9Y/kd1xmvCniZ+3Bvydl2l2flwpOh+idFs9bkJ/i0eYi+noNN0a7FaKLYRj48MUDI2YHyR6pyHbQ6s/l5RCC6XnQgslk0lzA8U+mMs2kS8/Jl+S02k3L0hkEXuhSlwxiT3UtGFBdxYlTcsmVxYlTenN0dEn9CB8WylIBzHrYqgXj+dBzfFqYzpRCdJBDAhHjh7m2zdXVlay24ZDKUYnWUuWu1QlWUsWr0QYu1RCdBLtgTYRMvSiorJC24SzG6uqDul/5+TeOv4lS1/GYjG62tOuFMBB2Cjwi4QcPQiFghSO3FUK4CAmLExaQo4e9NzopqkXY0oBHITrAONLyNEDPKAQe6NQsqywJREk9zinYnl5eQkG6fV6jQ+LxcrsIPBt9b3y4VyEDhHeH1CRURLlatbcKokqwiuXkKMHJbG6cvk6/yOL34MzRhzBqQRw8NW7CWrzXdIb5MzMDPUPXFMK4CDmZszPQo4emGV9SHZ0tVE8HtcbJIwkvDSrBHAQp9Ys55dofCwAKhE6CccOzoCQoRcwk2AqqYToJMuiIwH7ATaESohOwpGAMyFk6AX6ElMHykclRgdhnOGZrBcnuEuWtVQluEuWtVS3g2uVxVBeU3PMnPsDOBjFAalKWDHZP3CdotEof4ASurNpahYldGfT9CxK4B5dPtfMdiOLx5orUErFuo0liTK1O85QOp22RpAAhmYcBBXrtOuc20WpVMo6AUosLy8bF5cKcfPwJ/m7fLTwZsF6AUrgaK+x6WxepYsxscXdRIuLi9YNUAK3G9GjWBlzySqCC0fuUZ3tJOGlXPyM9YHFCEs/9rjewBVj9tyeXbhuWD1hpVRnvxMM3bfWIrMXINi5uTljuLbZav868bAVsT3AM9oXV7IPoBVlZb8BR9qlbBESIEoAAAAASUVORK5CYII=" id="n2" x="322.49999237060547" y="1545.4999389648438" width="80" height="80" prefix="SI" group="g1" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n3" x="530.8333206176758" y="1545.4999389648438" width="80" height="80" prefix="AS" group="g1" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAhNJREFUaEPtmj1LY1EQhvMH0mmjf0AFTYKgCYiNoIKFsGJUFKOIH4XGBT/A3fUDjTYxhcSAYgolASGIoI1F0EJsjI2dpNgiYJEyXcpXJpx0U9ybFHfEeeAtM2ee3HPOLe64FEVRxFIul5FOp7G5uYGBwX643W5HQmuHV8NIJpMolUow7dVPLpeDP9CFydAv7B79Rvr2BB+fj46E1o4cb2B2YRxeXwey2Wz9ovHTOHp6/Xh4vmIXdTIv7zcYHOpD5HC/dlF6giTILSApwYlhZDIZ+6J0Br0+D55er9nCkvL2cV/ZusVi0Z5oIpHA4vIUW1Ri6K6gS9G0b42FxXlE43/ZghJDFxLdvKZ9awQC3bjLXrAFJYa2bHNzkz1JeidxxSSHejbtW0MlhUYlOVRSaFSS48dIfsfk83nrovQD7t+SHOrZtG8NlRQaleRQSaFRSQ6VFBqV5FBJoVFJDpUUGpXkUEmhUUkOlRQaleT4EZKtbS3fYl6gmvf/D2hobLAnGRwbxdnlEVtQYuirOH0dN+1bIxaLYWVtli0oMTTARJNapn1rFAoFeLztlW3AFZUWmjeiuSPTvnVSqRQmQyNsUUlZ/7OEyOGBfcEqdDbD63Nin+jW3jJGgyOg4SrTcm1Ej6Po8ndW5nokjL3QnN/J+V5li27v/KtfsAp9EqMBJrrB6H3kZHw+D0Iz07WdQUVRHMbl+gLNo4haggzGqgAAAABJRU5ErkJggg==" id="n4" x="803.3333129882812" y="669.6666412353516" width="80" height="80" prefix="DS" group="g1" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n5" x="1749.166618347168" y="2440.833236694336" width="80" height="80" prefix="AS" group="g2" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n6" x="1749.166618347168" y="2175.1665802001953" width="80" height="80" prefix="AS" group="g2" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAhNJREFUaEPtmj1LY1EQhvMH0mmjf0AFTYKgCYiNoIKFsGJUFKOIH4XGBT/A3fUDjTYxhcSAYgolASGIoI1F0EJsjI2dpNgiYJEyXcpXJpx0U9ybFHfEeeAtM2ee3HPOLe64FEVRxFIul5FOp7G5uYGBwX643W5HQmuHV8NIJpMolUow7dVPLpeDP9CFydAv7B79Rvr2BB+fj46E1o4cb2B2YRxeXwey2Wz9ovHTOHp6/Xh4vmIXdTIv7zcYHOpD5HC/dlF6giTILSApwYlhZDIZ+6J0Br0+D55er9nCkvL2cV/ZusVi0Z5oIpHA4vIUW1Ri6K6gS9G0b42FxXlE43/ZghJDFxLdvKZ9awQC3bjLXrAFJYa2bHNzkz1JeidxxSSHejbtW0MlhUYlOVRSaFSS48dIfsfk83nrovQD7t+SHOrZtG8NlRQaleRQSaFRSQ6VFBqV5FBJoVFJDpUUGpXkUEmhUUkOlRQaleT4EZKtbS3fYl6gmvf/D2hobLAnGRwbxdnlEVtQYuirOH0dN+1bIxaLYWVtli0oMTTARJNapn1rFAoFeLztlW3AFZUWmjeiuSPTvnVSqRQmQyNsUUlZ/7OEyOGBfcEqdDbD63Nin+jW3jJGgyOg4SrTcm1Ej6Po8ndW5nokjL3QnN/J+V5li27v/KtfsAp9EqMBJrrB6H3kZHw+D0Iz07WdQUVRHMbl+gLNo4haggzGqgAAAABJRU5ErkJggg==" id="n7" x="2021.6666107177734" y="2185.1665802001953" width="80" height="80" prefix="DS" group="g2" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABR9JREFUaEPtms0rvUEUx/0D8hKRt1DeFkIpLxvvRElJFihRKIWFiBULrNgoCyVZSJKVHStZWFnZWdpZ2lnOr8+45/7GvfO4z73udefqTn3jzjwz53xnzpk553kmI10s5fX1VT08PGgcHR2pvb09jeXlZTUwMPBjzM/PB8c8ODgIynp5eVEBFeJT3t/f9cAIQijCi4uLVWZmpqqtrVU9PT0aCwsLanV1VWN3d1ddXFz8GPv7+8ExmTiR1dDQoOXn5eVpfaanp7V+6Pn29uZvAj4+PtTJyYnq7OzUhBgYQQhF+NPTk57NZOP5+Vnrc3h4qPVDz8rKStXW1qZ1ZYEClL4WZqOurk7Nzs6q6+tr6+Cu4+bmRq88PO7u7sKJ5ufnq6urK2vnVMP9/b3KyckJJ4mtV1dXq5mZGXV2dmbt7DqwQPYPeMAnQO1/oRJbZ/Po7+/XD+GbkN7c3NQ+cHt7ax38t8FKoc/29rYmhZ5sRu3t7bqOvcOTZOhgDATppaUlPVB9fb3uXF5ern+DsbGx4E4IZEJiBUqa401MTARliXxWit8Q5Hn6sUCm7r5JeuHx8TGolOxwApmQWIHi5niys4NoLOnHJFMBaZJ/BWmSfwVpkn8FKUeSM5Lz19bmhZQjSZhJZEWw4DfdSymSxKmEcfzPipIz+ol8rCSzs7PD4j8XgJkSD8tvCBKIR8qUrCQLCgq0ObiUZjHprCKxslmPyWLCBOdmPSDdGh4eVoWFhXZzxRzoXFRUpB8kQKYOkwkd7DdwfHys9bC1gbm5OTU0NKRWVla0z6I3q0y/iD7JTPEgJFldSUIZgN+YEG2S5gjilW9KvtjS0qL/2p4R8CKrqalJZ0PmphSRpBcwBYTiI5CUhFUg+d5PwaS2traqqqoqqx4myDdJx0LrGSdA7X+hMvTBZEISYlubgLcWJPW2NudJem04JrAkYGsDzpOEXHNzs9UMAe4SKQJyniRgE2E1Q98BQxw/NOtsSAmStuODHZSjwqzzgvMk8Ul2avN8JkiBtN+ozHmSNp+DMH7KpwCz3gtOk2TTwRdtK4af+olbgdMkMUn80dYGya6uLl+r6SxJVojvjrY2VpYJ8JtAOEkSEvicLf6NliCAz+np6VeiRPB+nToR4HjAFG1tHBu029pswK/LyspUVlbWV5Iw5+syB22yyLKrhh70XgG4Dei9uLioSkpKgslCgN5noQKzIB6sqanRhAcHB7VgMg/bbhdvmK86wHdBOvqgF+2jo6OqtLRUf23r7e1Vl5eX+hkrSXMQlhwT4fM6eV1ubq7u1NjYqH9LgBzrVycbTFI7Ozuqr69P6yCyOD6QjR7ow2qNjIyojY0Na2IfkaQXJKcUwZhTR0eHFs6tEMaJFbyCEYvhuOju7tYJschi40F2qE5eYMwAvc9Che3B3wIryEqadRLlfJdyfQfnSOJPJhkI8rbBZoZ+4RTJ0IwjHgSBUyTNwDteBIEzJCEHSf6PJ0HgDEkJyNlNIRsvgsAJkmw0FRUVUWUX0cAJkhwZnH+JIAiSTpJDX25RJYIgSDpJDv9EZz5hJNfW1tTk5GRcHf87JHIF8XWuhI6Pj38lSeFCL3dFuSE8NTWlZ5tYkY3BNpgLkGyEzwUkE+jOBV8SBy4pB6iFFzqfn5+r9fX14LVs/EeuSTNLEjQjwESoErFCEgGBfGQCoofohY7oxCLRN0Aj+sKsyIV3Lr/LRXgEmMAP4gGCAnPcra2toEzRw/Madrr82ZKR8Q9twloCMo+NrAAAAABJRU5ErkJggg==" id="n8" x="2021.6666107177734" y="2440.833236694336" width="80" height="80" prefix="CA" group="g2" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAyBJREFUaEPtms1rE0EYh/MP5FYvFsRaEE/WUE0TkLQQrSlaowU/WjRVMBG0VFFaLIpRafdiLiGN+BFEQVBQBBOkkKCH4MV4aU4lBw8BDznmluNrf8sG1jhN9mOSzMC+8ECa2U7mYXY+3t1xOeGEE/JFuVwmRVHo/IVztG94iNxud18YHNxNJ0KTaltyuRxpzbMX9XqdYrFr5PWN0p2VKD1/o9CPzU+09edbX/i1laV3n5NqW8IzIRqfCFC1WrUuWywW6ZDnICXWHzB/UAQ+fn1GY77DlM/nzYvWarXtfz5C33++Z1YuEuhd3GmVSsWcaGT+MiVfPmZWKiLoUdy6WvM7R6FQoNDJILMykbkau0iZTMaYaDz+kO7FbzArEpnki0c0fyViTPJ0eJpef0gwKxKZjeJb8nhGjEliLcJgZlUkOlhLNY32gQtZFciAI6mPbkquJpboaeo+s4wHQkjORsK0/8AwxZXbzHK7CCOJnowuzKn7T9Y1dhBKEp8hib9br7GDcJIAn0+dPUabvzf+uc4qQkoCpG8Q5bE2c5WM3pyjiaDfNHuH9vwnCbDDQrldUa6SuAbJqxV2ujW/FF7RqHfEVnrHXZL1vV0giB6FMKu8E1JIgqYockRWeTukkQQYmxA1mw1JJQkwdqe3Z13WRLUT0kkCiM5GzhgWlVISQNDozkhKSbNbP+kkrWzipZFsjkMr6ZgUklZmVD3cJVlbtk60W+Ctro16uEoia0CDzIINOrKO1vrs7HL0cJW0CivVsrtf1SOkJI/MQ49wkrxySD1CSfJ8GqBHGMnJqQDX5zp6hJDEYxOIssp4IIRkt3Ek9TGwa6Ar46UXGJb0+8e4LMy9BjM13q1qGu1j8dai+vaJVZHIYN3FW3JNo33gcAEOGbAqEpm7KzFSlDVjko1Gg3x+r/oOnlWZiOCUGM4d4fyRptE5SqUSBY+PSzMBhWemKJvNGhdsRmo9RUcDPqF7FJMNBFfXnpgXbAZ6FLfu9YVLatLLe69pFbQFj0dw9s9SD7YGxmg6nVaPYGKKxlrUb9CW5eUlc2PQCSeccKJ34XL9BV9oYrDEnBUbAAAAAElFTkSuQmCC" id="n9" x="1139.9999694824219" y="669.6666412353516" width="80" height="80" prefix="PS" group="g3" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n10" x="1476.6666259765625" y="443.49998474121094" width="80" height="80" prefix="AS" group="g3" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n11" x="1749.166618347168" y="453.49998474121094" width="80" height="80" prefix="AS" group="g3" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAatJREFUaEPtmG9LwlAUh/3mZoIhaFlMGWU1KmNULNIMxBQEIaMIEsF3QeD3uHUuu+/OSt3O3T1wfvC8+g12n3F39qcgkUjcTrPlqWKxyBZYf6ySHDhwuRqxBdYfqyRHJBkgkiYiyQCRNBFJBoikiUgywJrk0/haTd4itKPGiuTz9EYdnx+hnQ3IJcezOy24+B6ivQ1IJacf96rp7+cqCJBJvnw+aMH51wDtbUIiWTuoqnJ5V3mtuhalYJOLRyLZ/r0H642q6o86eqJmDewS7LxJkEgC78u+vuJwX2K9TcgkAdhSIAoTFuttQSoJwGT1Txr6ZQDrbUAuaQg6rdxErUkCmw6MrLAqmRfOS16Gvp7UWLcuzku+Lnp6QqcRdV4SMM/cbUVZSAJpRNlIAtuKkkjCsIDFUHDo1VSptKNm8y56bgwSSRgW2It1FoBk9Bhs9I1KIkkF7JDe8Art/oKNZNQPVBi10e4/WEgOJqE6vfDQbh2cl4T7EL5i0vwncl7ytnuW+j+R85JZIJImIskAkTQRSQaIpIlIMmAtycpeRR/IFVh/rCKRSJxMofADZbp/ykKr1HUAAAAASUVORK5CYII=" id="n12" x="1476.6666259765625" y="699.1666412353516" width="80" height="80" prefix="TR" group="g3" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAhNJREFUaEPtmj1LY1EQhvMH0mmjf0AFTYKgCYiNoIKFsGJUFKOIH4XGBT/A3fUDjTYxhcSAYgolASGIoI1F0EJsjI2dpNgiYJEyXcpXJpx0U9ybFHfEeeAtM2ee3HPOLe64FEVRxFIul5FOp7G5uYGBwX643W5HQmuHV8NIJpMolUow7dVPLpeDP9CFydAv7B79Rvr2BB+fj46E1o4cb2B2YRxeXwey2Wz9ovHTOHp6/Xh4vmIXdTIv7zcYHOpD5HC/dlF6giTILSApwYlhZDIZ+6J0Br0+D55er9nCkvL2cV/ZusVi0Z5oIpHA4vIUW1Ri6K6gS9G0b42FxXlE43/ZghJDFxLdvKZ9awQC3bjLXrAFJYa2bHNzkz1JeidxxSSHejbtW0MlhUYlOVRSaFSS48dIfsfk83nrovQD7t+SHOrZtG8NlRQaleRQSaFRSQ6VFBqV5FBJoVFJDpUUGpXkUEmhUUkOlRQaleT4EZKtbS3fYl6gmvf/D2hobLAnGRwbxdnlEVtQYuirOH0dN+1bIxaLYWVtli0oMTTARJNapn1rFAoFeLztlW3AFZUWmjeiuSPTvnVSqRQmQyNsUUlZ/7OEyOGBfcEqdDbD63Nin+jW3jJGgyOg4SrTcm1Ej6Po8ndW5nokjL3QnN/J+V5li27v/KtfsAp9EqMBJrrB6H3kZHw+D0Iz07WdQUVRHMbl+gLNo4haggzGqgAAAABJRU5ErkJggg==" id="n13" x="2021.6666107177734" y="453.49998474121094" width="80" height="80" prefix="DS" group="g3" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n14" x="2358.333267211914" y="453.49998474121094" width="80" height="80" prefix="AS" group="g4" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAhNJREFUaEPtmj1LY1EQhvMH0mmjf0AFTYKgCYiNoIKFsGJUFKOIH4XGBT/A3fUDjTYxhcSAYgolASGIoI1F0EJsjI2dpNgiYJEyXcpXJpx0U9ybFHfEeeAtM2ee3HPOLe64FEVRxFIul5FOp7G5uYGBwX643W5HQmuHV8NIJpMolUow7dVPLpeDP9CFydAv7B79Rvr2BB+fj46E1o4cb2B2YRxeXwey2Wz9ovHTOHp6/Xh4vmIXdTIv7zcYHOpD5HC/dlF6giTILSApwYlhZDIZ+6J0Br0+D55er9nCkvL2cV/ZusVi0Z5oIpHA4vIUW1Ri6K6gS9G0b42FxXlE43/ZghJDFxLdvKZ9awQC3bjLXrAFJYa2bHNzkz1JeidxxSSHejbtW0MlhUYlOVRSaFSS48dIfsfk83nrovQD7t+SHOrZtG8NlRQaleRQSaFRSQ6VFBqV5FBJoVFJDpUUGpXkUEmhUUkOlRQaleT4EZKtbS3fYl6gmvf/D2hobLAnGRwbxdnlEVtQYuirOH0dN+1bIxaLYWVtli0oMTTARJNapn1rFAoFeLztlW3AFZUWmjeiuSPTvnVSqRQmQyNsUUlZ/7OEyOGBfcEqdDbD63Nin+jW3jJGgyOg4SrTcm1Ej6Po8ndW5nokjL3QnN/J+V5li27v/KtfsAp9EqMBJrrB6H3kZHw+D0Iz07WdQUVRHMbl+gLNo4haggzGqgAAAABJRU5ErkJggg==" id="n15" x="2566.6665954589844" y="807.4999694824219" width="80" height="80" prefix="DS" group="g4" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOlSURBVGhD7VrBS5NhGPcf8KaXPFWHNCIdldtCpyTLscqB5EwqTcgZpFbaRlE5DzEP6UGcYSSRNihcBDVCcNRhdMkuehIPHYQOO+7m8Wm/r/cNiTed297n+2T+4HcZY9/v2fM87/t8v/ctOwAjNjY2aHJykobuDFGr57zBQH8fRSIRWltbI/G1/QkE4O/soNq6EzQ40ktPJ4IU+zBl8Nn0Ixp+2Ef1jlNG0IlEYn8Fu7W1RYHATSOA2dcRWv/1ZUciaF+7h5qaXZTJZKwfLES2+S7SRPSxMqCdGP/8nBzOekJ5i5+zHjY3N8nV3GBkRhVELvz6/S01upzW7FVkEFlYSs0rxe+FP9Y/kd1xmvCniZ+3Bvydl2l2flwpOh+idFs9bkJ/i0eYi+noNN0a7FaKLYRj48MUDI2YHyR6pyHbQ6s/l5RCC6XnQgslk0lzA8U+mMs2kS8/Jl+S02k3L0hkEXuhSlwxiT3UtGFBdxYlTcsmVxYlTenN0dEn9CB8WylIBzHrYqgXj+dBzfFqYzpRCdJBDAhHjh7m2zdXVlay24ZDKUYnWUuWu1QlWUsWr0QYu1RCdBLtgTYRMvSiorJC24SzG6uqDul/5+TeOv4lS1/GYjG62tOuFMBB2Cjwi4QcPQiFghSO3FUK4CAmLExaQo4e9NzopqkXY0oBHITrAONLyNEDPKAQe6NQsqywJREk9zinYnl5eQkG6fV6jQ+LxcrsIPBt9b3y4VyEDhHeH1CRURLlatbcKokqwiuXkKMHJbG6cvk6/yOL34MzRhzBqQRw8NW7CWrzXdIb5MzMDPUPXFMK4CDmZszPQo4emGV9SHZ0tVE8HtcbJIwkvDSrBHAQp9Ys55dofCwAKhE6CccOzoCQoRcwk2AqqYToJMuiIwH7ATaESohOwpGAMyFk6AX6ElMHykclRgdhnOGZrBcnuEuWtVQluEuWtVS3g2uVxVBeU3PMnPsDOBjFAalKWDHZP3CdotEof4ASurNpahYldGfT9CxK4B5dPtfMdiOLx5orUErFuo0liTK1O85QOp22RpAAhmYcBBXrtOuc20WpVMo6AUosLy8bF5cKcfPwJ/m7fLTwZsF6AUrgaK+x6WxepYsxscXdRIuLi9YNUAK3G9GjWBlzySqCC0fuUZ3tJOGlXPyM9YHFCEs/9rjewBVj9tyeXbhuWD1hpVRnvxMM3bfWIrMXINi5uTljuLbZav868bAVsT3AM9oXV7IPoBVlZb8BR9qlbBESIEoAAAAASUVORK5CYII=" id="n16" x="2566.6665954589844" y="296.1666564941406" width="80" height="80" prefix="SI" group="g4" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOlSURBVGhD7VrBS5NhGPcf8KaXPFWHNCIdldtCpyTLscqB5EwqTcgZpFbaRlE5DzEP6UGcYSSRNihcBDVCcNRhdMkuehIPHYQOO+7m8Wm/r/cNiTed297n+2T+4HcZY9/v2fM87/t8v/ctOwAjNjY2aHJykobuDFGr57zBQH8fRSIRWltbI/G1/QkE4O/soNq6EzQ40ktPJ4IU+zBl8Nn0Ixp+2Ef1jlNG0IlEYn8Fu7W1RYHATSOA2dcRWv/1ZUciaF+7h5qaXZTJZKwfLES2+S7SRPSxMqCdGP/8nBzOekJ5i5+zHjY3N8nV3GBkRhVELvz6/S01upzW7FVkEFlYSs0rxe+FP9Y/kd1xmvCniZ+3Bvydl2l2flwpOh+idFs9bkJ/i0eYi+noNN0a7FaKLYRj48MUDI2YHyR6pyHbQ6s/l5RCC6XnQgslk0lzA8U+mMs2kS8/Jl+S02k3L0hkEXuhSlwxiT3UtGFBdxYlTcsmVxYlTenN0dEn9CB8WylIBzHrYqgXj+dBzfFqYzpRCdJBDAhHjh7m2zdXVlay24ZDKUYnWUuWu1QlWUsWr0QYu1RCdBLtgTYRMvSiorJC24SzG6uqDul/5+TeOv4lS1/GYjG62tOuFMBB2Cjwi4QcPQiFghSO3FUK4CAmLExaQo4e9NzopqkXY0oBHITrAONLyNEDPKAQe6NQsqywJREk9zinYnl5eQkG6fV6jQ+LxcrsIPBt9b3y4VyEDhHeH1CRURLlatbcKokqwiuXkKMHJbG6cvk6/yOL34MzRhzBqQRw8NW7CWrzXdIb5MzMDPUPXFMK4CDmZszPQo4emGV9SHZ0tVE8HtcbJIwkvDSrBHAQp9Ys55dofCwAKhE6CccOzoCQoRcwk2AqqYToJMuiIwH7ATaESohOwpGAMyFk6AX6ElMHykclRgdhnOGZrBcnuEuWtVQluEuWtVS3g2uVxVBeU3PMnPsDOBjFAalKWDHZP3CdotEof4ASurNpahYldGfT9CxK4B5dPtfMdiOLx5orUErFuo0liTK1O85QOp22RpAAhmYcBBXrtOuc20WpVMo6AUosLy8bF5cKcfPwJ/m7fLTwZsF6AUrgaK+x6WxepYsxscXdRIuLi9YNUAK3G9GjWBlzySqCC0fuUZ3tJOGlXPyM9YHFCEs/9rjewBVj9tyeXbhuWD1hpVRnvxMM3bfWIrMXINi5uTljuLbZav868bAVsT3AM9oXV7IPoBVlZb8BR9qlbBESIEoAAAAASUVORK5CYII=" id="n17" x="2566.6665954589844" y="551.8333129882812" width="80" height="80" prefix="SI" group="g4" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n18" x="1476.6666259765625" y="2746.4998931884766" width="80" height="80" prefix="AS" group="g5" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n19" x="1749.166618347168" y="2736.4998931884766" width="80" height="80" prefix="AS" group="g5" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAhNJREFUaEPtmj1LY1EQhvMH0mmjf0AFTYKgCYiNoIKFsGJUFKOIH4XGBT/A3fUDjTYxhcSAYgolASGIoI1F0EJsjI2dpNgiYJEyXcpXJpx0U9ybFHfEeeAtM2ee3HPOLe64FEVRxFIul5FOp7G5uYGBwX643W5HQmuHV8NIJpMolUow7dVPLpeDP9CFydAv7B79Rvr2BB+fj46E1o4cb2B2YRxeXwey2Wz9ovHTOHp6/Xh4vmIXdTIv7zcYHOpD5HC/dlF6giTILSApwYlhZDIZ+6J0Br0+D55er9nCkvL2cV/ZusVi0Z5oIpHA4vIUW1Ri6K6gS9G0b42FxXlE43/ZghJDFxLdvKZ9awQC3bjLXrAFJYa2bHNzkz1JeidxxSSHejbtW0MlhUYlOVRSaFSS48dIfsfk83nrovQD7t+SHOrZtG8NlRQaleRQSaFRSQ6VFBqV5FBJoVFJDpUUGpXkUEmhUUkOlRQaleT4EZKtbS3fYl6gmvf/D2hobLAnGRwbxdnlEVtQYuirOH0dN+1bIxaLYWVtli0oMTTARJNapn1rFAoFeLztlW3AFZUWmjeiuSPTvnVSqRQmQyNsUUlZ/7OEyOGBfcEqdDbD63Nin+jW3jJGgyOg4SrTcm1Ej6Po8ndW5nokjL3QnN/J+V5li27v/KtfsAp9EqMBJrrB6H3kZHw+D0Iz07WdQUVRHMbl+gLNo4haggzGqgAAAABJRU5ErkJggg==" id="n20" x="2021.6666107177734" y="2736.4998931884766" width="80" height="80" prefix="DS" group="g5" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAilJREFUaEPtmr9LW1EUx/MPZNOlsUPb3RraagKiQvFHhxoQah2sP8DGIGJFUQyIUYlvyhI00mqQFgottBRMECGhDqFL42ImyeAQ6JAxW8avnscLXOSSvNghJ3g+8N2Sk/vJufe94R6HIAgCS3K5HAzDwOjbN3j85BGcTmdD4nI9wODQgLmWZDIJa3n/R6lUgt8/g07PMywF3+PjZwN/Ln7i8t/vhuT8MoGvv6LmWnwjQ+jt60GhULi7bCaTQYe7HZG9de0PcsiPk310eZ4jlUrVL1osFm++/AJnf79pi3MKdZd2Wj6fr090YvIdogdb2qIcQx2lrWstvzbpdBptD13ag98MCQQCtWVDoQ2shea0/xjnRD9tYnJqwl43h32vcfQ9oi3EOaeZL3C7n9qTpHcRHWZdIe6h7WppVIc+qCvQDBFJFZFkHpFUEUnmEUkVkWQekVQRSeYRSRWRZB6RVBFJ5hFJFZFkHpFUEUnmEUkVkWQekVS5F5ItrS24uDrVFuEe25JebxeO04faIpxDd6p0t2ppVGfhwwLCkRVtIc6h23G6Jbc0qhOPxzHtH9MW4pzloB+GsWNPslwuw+PtNO/gdcU4hqbEaO6I5o8sjdpks1m87O9tmgeQb+QVEomEfcEKu3u76O7xsO4oPWxIMLyzXb9gBeoobd3Z+XFzcI/LVAitJWQsmrN/d+rgbeiMxmIxcwSTHtH0Lmp0aC2rqyv1nUFBEJjgcFwD5Om1QL8t8VcAAAAASUVORK5CYII=" id="n21" x="803.3333129882812" y="3178.833206176758" width="80" height="80" prefix="AS" group="g6" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAhNJREFUaEPtmj1LY1EQhvMH0mmjf0AFTYKgCYiNoIKFsGJUFKOIH4XGBT/A3fUDjTYxhcSAYgolASGIoI1F0EJsjI2dpNgiYJEyXcpXJpx0U9ybFHfEeeAtM2ee3HPOLe64FEVRxFIul5FOp7G5uYGBwX643W5HQmuHV8NIJpMolUow7dVPLpeDP9CFydAv7B79Rvr2BB+fj46E1o4cb2B2YRxeXwey2Wz9ovHTOHp6/Xh4vmIXdTIv7zcYHOpD5HC/dlF6giTILSApwYlhZDIZ+6J0Br0+D55er9nCkvL2cV/ZusVi0Z5oIpHA4vIUW1Ri6K6gS9G0b42FxXlE43/ZghJDFxLdvKZ9awQC3bjLXrAFJYa2bHNzkz1JeidxxSSHejbtW0MlhUYlOVRSaFSS48dIfsfk83nrovQD7t+SHOrZtG8NlRQaleRQSaFRSQ6VFBqV5FBJoVFJDpUUGpXkUEmhUUkOlRQaleT4EZKtbS3fYl6gmvf/D2hobLAnGRwbxdnlEVtQYuirOH0dN+1bIxaLYWVtli0oMTTARJNapn1rFAoFeLztlW3AFZUWmjeiuSPTvnVSqRQmQyNsUUlZ/7OEyOGBfcEqdDbD63Nin+jW3jJGgyOg4SrTcm1Ej6Po8ndW5nokjL3QnN/J+V5li27v/KtfsAp9EqMBJrrB6H3kZHw+D0Iz07WdQUVRHMbl+gLNo4haggzGqgAAAABJRU5ErkJggg==" id="n22" x="1139.9999694824219" y="3178.833206176758" width="80" height="80" prefix="DS" group="g6" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABKxJREFUaEPtmrsvfEEUx/0DOhWdQki8CSEEIYTEoxASkQgFGhQeiYgg8WhoPCJCoRANFZVoRKEQDZ1Sp9Qpzy+fm7nJzf7m7szcH/nNJnuSb+za2TPnOzPnNXdzspKVrPgn3d3dkpubmzEoKCiQsbExub29FUXBLB8fH3JxcSFdXV2ys7Mj7+/vXuPl5UX29/elv79fVldX7YmGMjk5KSsrK1rlPmJxcVFmZ2fdiH5/f0tLS4vc3NxolfoI3O3+/t6N6OvrqzQ3N8vb25tWqW94enqSyspK+fr6ciOKY3PudUp9BEd2d3fXfTfr6uq0Cn0Eu1lSUiK4m6JgJ62trXJ9fa1V6iOGhobk6urKjeTR0ZFMTU1pFfqIk5MTGR4ediNJ/iwuLtYq9BEESgoF5yNbVVUld3d3WqU+IlE6WVpakvX1da1CH4Gt2KzMtxMcGYfWKfQRBEoCpjLfTvhiRUWFVqGPwC/z8vLcSCJ8yab6Ibp1dnZKfn6+tntICuZnd2zdJtwUZb6d2OTL6upqaWtrk/Pz86BL0I1JChb4+PhYysvLpaOjw7jgifKlqcSjnOrr65PGxsbgtW7Mv4AFrq2tDf7Oz88H0I0LQYm3t7fnRnJtbU2Wl5e1CgE7fXl5GazwyMiIjI+PWx1vG3BEWTzKNt4/PDxIUVHRX+Oi2Nracm+/TJVPqs8yCcQxKDrOBRz53t5eob9N/Qw/Tf1fFIkqH64Z6MJ1CoFu0vCIscOpn5lA8cHuYazucxNJeuGGhgY3ko+Pj9Le3q5VCOImZTfYUZMPRYHvszjpqiwTSU4QHYky306en5+lqalJqxCYJoUkqSVd1OW4czQHBweN/myaD/8tLCx0I2kq1E2TAlILO6S7VsEolzxoMx9jlPl28hMkAccIXyMwhf/DZ8vKyox5OAqvSQKOIikGcNPGDroWD96TBJCqqakJ/CZJmvGeJD4Zpgde46dxqSIOXpOk5INgND2ESd8lzfwKSdPNnWnS0A8p+eLSAyRt/dM0Hzq4BlHm20nSYgDgcxgfjahxINKGhbju8xAmkomKAe5MuDvRKQRxk9oaHYXNophI4g7cTSnz7eTs7EwmJia0CoFuUpfjl4rweMdVPyaSFB60fsp8O9ne3k4bGKKTQooSziWQxIE6NjVQARNJAhwlojLfTvhCumY4LNfClMBK6sYlQTTl8J5F5HoldVwULDAbo8y3Ex7OpmuZZmZmZGBgIDAmSXI3AWKkGRp3yPJaNy7E6Oho8FBZmW8nVCZhZ64DflNaWiobGxuxKeInMD09HZyUdLYAOiY6J2W+WT4/P4PyS6csClabYMEtAT7zG2AHTQQBNjg9KjDdCvgGfNj5VgAHXlhY0Cr0EYkiqyno+AbnoMMzeGpAnTJfgb1Ovx1gRVgZnTIfwYnj5Cnz7YS7S9de73+CFHN4eGhPktRBD/mbee8ngZ3Yi92Kglm4f8m0h6/YrMw3C6tRX19vlXh9ALuIvbxWFMzCU6yDg4O/lPmKubm5ID8q881yenqaUY/P6XjoW5X56YXLqs3NzYBgJgQbXImGgObYKi/29PRoC2KfQdNAoHH+zU5WsuKz5OT8ASAzBfbo87P5AAAAAElFTkSuQmCC" id="n23" x="1749.166618347168" y="3651.166519165039" width="80" height="80" prefix="MG" group="g7" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAA09JREFUaEPtmjFrMkEQhv0DdunSh9gJgiRFIFZio52BEBBSmC4pBCEB0cZOG8FCSCEkpNHKVNHGH5AmdpZ2lnaW8/HK3od7zO7dnkZvyQ08xe0ys/vEy54eE4viL8RyuaTBYED1ep2y2SzF4/FQgL1Uq1V6f3+nxWJBYrvm8fb2RslkkorFIj0/P9PHxwfN5/NQgL00Gg26u7vb7LHVapmJrlYryufzmwLf39/sImFiNpvR09MTXV9f+/9UIdjpdNiCYWY4HNLFxQWt12u9KG5RfIJcERt4eXmhWq2mlsQhg/vbhltUBW7dq6sr+vn54UVfX1/p/v6eTbYJHJJ4GggtOR4fH6nZbLKJNtHv9zcHp9CS4/LykkajEZtoE/h3Oz095SXxkOWSbAQuQkuOSNIyDiJ5e3trNA50c6YcRFJVS7fGvtcXWnJEkoZEksw4iCQNiSS5BC/wNcp9/O9LEnWD/CraqyQ2gF/k7lxVLd0a3BzGUN9UFHlCSw7dBjgcQXypd+eqaunW4OYwhvqmosgTWnLoNuBmWxDXyK1UKv9xX3uNA27O2ZOpKPKElhxOQS/cggBvztyb2772GgfcHOo6a5iI7iTJCXKo5nV5XjWBX9HAkn4Ffxs/ooElUTgsL5ixD+yHmwOBJfEXzGQyvv4nfhOsj33o7qjAkuDYon4EwU6SgBPt9XrSqZhKpaRrr3HAzaGus4ZfQbCzJHCLInd7c+5rr3HAzTl7MhEEyBNacjgF/bIt6s5V1dKtwc1hzFQQIE9oyaHbgApH1J2rqqVbg5vDmKkgQJ7QkkO3AR3YwNnZmTSmqqVbg5tDXVNBsHdJjn1JBiWS5BKCEEky4yCSNCSS5BKC8CckVc823TMvyPNQxUEkj41SMpFI0HQ6ZZNsAh0gJycnvGSpVLKySckNmpbw1kBoydHtdunh4YFNtAm84UNzodCSAw0+6XSaTbSJQqFAn5+fvCQCLVto3eKSbQBvEm5ubtSCCDTfoQnv6+uLLRJmcOCcn58T2ueEjjpw26LHrt1us8XCCLqwIDgej70FnUDPa7lcplwut2lFw4nFFT8m+PKAZl40HaPNzNcnyMVkMiH03OFIxgM2TKBNDh8E2sfFdqOIwv6Ixf4BzmOb5j1KK+IAAAAASUVORK5CYII=" id="n24" x="1476.6666259765625" y="3867.3331756591797" width="80" height="80" prefix="SB" group="g7" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAg5JREFUaEPtmr9LQlEUx/0H3Gqpf6ACU3lgCmFR9AOigqAaCiJIgyiIoiiKHkS9JR2ijCCIMqGgCApCUGqQlmzJSRwahAZHN8cT5+Fd4sp7NtQ9cD7w3fK88+G++1q+DoZh6JHL5cAwDJiYHIfWthZwOp3/Fnw+7oH7ZLNZqK74eyqVCoTDc+Dza7CyGYLTCwNe3q4h//X8b8Hn4x64T2fQDyOjw1AqlX4ni6fnD/ggcrwtfZgqOb+JgMfbDqlUqj5RPEGP1w3JzKV0sGp5zz+C2+OCYrFoXxRfUdVP8GcS94cwMNhvTzKTyUBPX1A6SPVMzYxBIpGwFtX1HdjQF6RDVM/B0RaE50PWkvi1wsssG6J6HtJnEAh0WEs2NzeZF1k2hELwf2lVpTb4R7IfUwlLCliSQFhSwJIEwpICliQQlhSwJIGwpIAlCYQlBSxJICwpYEkCYUkBSxIISwpYkkBYUsCSBGJLsqGxAT4+k9IBFGJLsqs7CLdPJ9IBqgc7PlhmqqrUZn19DXRjWTpE9WCJCdtaVZXaaJpmHjnFeDUXRKNRa0mE4iv7+nFnNrPK5bI9yUKhYPbpKH2ABod6IZ1O2xMUxK/iZkFP9eoZniAK7u3v1icowKollgjnF6fNWpcq1RfcA/dZWp01X9G6T/AnWCaMxWJmbw07PrIL/9fBPXAf/MjYvoMMwyiCw/ENfgD1CgjMdDcAAAAASUVORK5CYII=" id="n25" x="114.16666412353516" y="3690.666519165039" width="80" height="80" prefix="TS" group="g7" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAAg5JREFUaEPtmr9LQlEUx/0H3Gqpf6ACU3lgCmFR9AOigqAaCiJIgyiIoiiKHkS9JR2ijCCIMqGgCApCUGqQlmzJSRwahAZHN8cT5+Fd4sp7NtQ9cD7w3fK88+G++1q+DoZh6JHL5cAwDJiYHIfWthZwOp3/Fnw+7oH7ZLNZqK74eyqVCoTDc+Dza7CyGYLTCwNe3q4h//X8b8Hn4x64T2fQDyOjw1AqlX4ni6fnD/ggcrwtfZgqOb+JgMfbDqlUqj5RPEGP1w3JzKV0sGp5zz+C2+OCYrFoXxRfUdVP8GcS94cwMNhvTzKTyUBPX1A6SPVMzYxBIpGwFtX1HdjQF6RDVM/B0RaE50PWkvi1wsssG6J6HtJnEAh0WEs2NzeZF1k2hELwf2lVpTb4R7IfUwlLCliSQFhSwJIEwpICliQQlhSwJIGwpIAlCYQlBSxJICwpYEkCYUkBSxIISwpYkkBYUsCSBGJLsqGxAT4+k9IBFGJLsqs7CLdPJ9IBqgc7PlhmqqrUZn19DXRjWTpE9WCJCdtaVZXaaJpmHjnFeDUXRKNRa0mE4iv7+nFnNrPK5bI9yUKhYPbpKH2ABod6IZ1O2xMUxK/iZkFP9eoZniAK7u3v1icowKollgjnF6fNWpcq1RfcA/dZWp01X9G6T/AnWCaMxWJmbw07PrIL/9fBPXAf/MjYvoMMwyiCw/ENfgD1CgjMdDcAAAAASUVORK5CYII=" id="n26" x="1749.166618347168" y="3906.8331756591797" width="80" height="80" prefix="TS" group="g7" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABGZJREFUaEPtms9LVFEUx/0H3NkmW+lG3UguLCVtRCF1MdkmW2QGVmaBI9IYUZgGjS6cadHMpmaTCoVCgRaEbsJFhYtCqEByI7SQVtLG5cnPe3egqfv0OfPezLvVF74bn/fNOffHud9zziv5j//YG6urq5JOpyUWi8nNkRHpaG/PYv+VK9azeDwuKysrooYFG9vb2zI/P28Zf6S8XEJNJ+R6X5+MRW9IYnxcXj97msV0ImE9uxWJSHtrqxwqK5Nz3d0yOzsrW1tbwXJ6c3NTLvb2Wo717BqJ8d8+fpAfG18PxO+fP8nc40dyqee8VFZUSNfp07K2tlZcZ5ntyOCg1FRVyXTyodbwfLgw/UQa6uut1WUi1c8WDrH796WmukqSkxNaA70kq8tEcq53dnb8d5ZzR9AYG4la20tnlF9M3BuXlpMn/V3V9fV1aTx+3AoaOiMKwbevXkrjsWNC5FZmeYfFhQUJNTfJl91Qr/vxQpKg1t7WJjMzM945ioPhzo6cIqZf5Khc6unxxlG2KCsYJAczxNFwZ2d+QoIgwxkMwhZ1IpPPGc0pGBGqu8LhogYZt/ywvGxFXRZFme8Od0dHZeLObe1Lg8jpVNJSXcr8/YGS4aIv9D2YL1FHrmUgAjv9IKF9UZDJ0UKoKDecwUwwI7qXmMCzXV2yuLi4t6OIYbSi7gUm0FJEDQ3OTnIWSXF0g/fiqZYWKS0t9Zzlhw/ndD+TxzrKPpJVcjndQJM4Fo1aFQflVjZM36oZOm5ZLn8ye9OuDSeSf/6hgpZ3VUO4o0M7wERSW6KIptyzkUqlZHjgqnaAiaRwRiVBuWeDP/BAN8BEEluIMco9G+g+P4pRxeKbF8+lJRTKdhI5ZELG4ZakhzXV1dlO8ocg5425EEGh3LNRWVkpG+/faf95PwZN8WTIO5R7Nti/7GPdP5tIFoyFU+7Z+FvUToZa1TMUiUhywv9qeKFIi4FeinLPBoKWDpNugImk6UTyr9yzQcuNjpRugImkHUjfU7lng0oXAl03wEQ61nv+FkGgFQIZxKemrGXWDTSJBFACqXIrG7QE6mprtQNNIikjqaNy609wt3DH6AabQEQAW3XPZi3lPMp6uhc4MUiybnhgQFLJpLODGZgq8Qg4dUePumu5m1pgdlVY/hWmadl9i8o6UGgONTcbkWNybmkUczso892DbRtqagp8mZJW//LS0sEdzIDvBc6eOVi0LSSHrw1I0k003Q98mHRrKHhKKDU5aX0RpszMHyPRqFzYDUZB2bqsYP/ly945mMH83Jz1/UyutSAvSJDh+HiyRZ1AS6xYX2VxTRBFiRPKHP/A9UJaxuXLlxc6g7wkO4eWIvdgTtdEPkBdIKMwwI8tzNZEiyK46Z2qny0OMIDyHytLLpePgMAx6jOUYuh6I7YL8vmnW7CyJKvMPNqXBJz+CudXl74xGTyjskYRjTY4JRgKUNScAuWcDqglCkk0kji/nKffUykmg2eUDqkW+vJ557+DkpKfx8eFIf7njUcAAAAASUVORK5CYII=" id="n27" x="1749.166618347168" y="1191.4999542236328" width="80" height="80" prefix="RQ" group="g8" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAB0FJREFUaEPtmvtTVGUYx/0H/K1mciRTErk4mZYXwBRQkcsoUIaaSroJiGCCIt4wWUogx7RxgCaSxklQmygdIaPGSQ1LFEu0IRUF8YKGFwTZhQVW+Hael3OYZXn37Dm7LGDDM/MZZs97znmf530u53nPYdiQDIm8lJWVITc3F+np6di0cSPGubggYO5cBAUGMlZFR7Ox3bt3o6SkBOJlsoJTp4D9+xWd6xBpbGxEQUEBU95p5Ej4zngLcStXQpu0AXtSU+E8ejTysrPw87eHGbl79rCxLfHxCJw9Gy++8AIWL1qE/Px81NXVcQ3BxIlAeXn/G3n79m2sWL6cGRYhKEnK15ZfRFPVjR64u47DFcFj5sclHv5Tge/2fYXIiGV41dkZYaGhuHz5crdBOHoUCAvrXwNptePXroWHmxsOZGVyFTfFmpHmFB74Bl5TpzLv0kJCCHEUF/efkelpafBwd0PWpxlcBXmoNVKCvPuOEOp1I0ags7PT8UZS3lHR0G5MYuHFU8oSPt7eOH30CHfMGkZ/f1Tv3ImszEzmVVGdvpfKykp4e3qyosFTxBoBfn42XasvKkSHhwc6jO04V/wTvKdNA1VuUa2+k6LCQvjOnGFTuEnYaiR50XgwH62PHrHfVNQC58xBXl5e3xlKBoYEB3ErphpsMVJ/+jQ6nJyYF5uqq7qPU6pERkT0jaEUouRBew0k5gcEsIrJG7NEm2YFjDt2oK3hSa8xMjQkOFhxI8EVKjKUg/aEqCkrly5hz1DeGA9d6dkuL+qaoKu5yT3n6pkSjB41ChUVFeoNNRgMcBeef5npadyb24JaI7u92NjAHaeomDThNezavh1+Pj4gp4jqK5MU4cINcbGs7Kdv3cqdRC1qjJTzIqUO3YvCv+pcKTt2QGgXqesS1bcu1MnQg156Dm6JX8uMlW6oFrouKyMDnpMnIzxkPutXpX7WUiq0xayCcdu2Xl6kwkXe4y0WdUembaCsUIOd+3nPm9BDnG5O3YfpcTnoXP9ZPhgz5hVoohZi8fuhiF6zBOu3RDGi45bC1XUspk15ky1Cd3Mh/O1wGomOu3egv3WLHaMxWmyq0JYWmxaAGhXRDMtCK0ErwrsJhUl4SAgLlW6FONBkpHhI2FzkH9mLq7W/ynLsxD62CK9PGM8WpjU5GcaoKBj1enY/WmAvIQqUpM1CoYEvKiqSN5SaYWveolChSc8e/7HXWGZGGgKD/JjiPIPkOHn+MN6dPwf1w4ejQ2jdngjPRSlVLp440WsuHqSTt5eXZSMpF2mLw7vYHJrUvCglrI6GJnIRLlUXc41QwgNtLCrn+eOvPy+wwmJL0aN9rMW2jzartJfjXchDyhMK4d2pWqwScoynuFKuCYvT/vJLaL1ThS+//owtGm9ea2iTktgbB9GsnqIkVHnQbp9C1B4PErW5H6Ml2A96w2P2O3zRPEX7VHMshiw9/GlnL1dQLEFFxpYcNMcwfiz050+i9vHf7Pfvl76Hm6uLTTrRRr7XluyHY3mYF+jPvUAO8jxVUXOF1UJebA7ygaFd1+M4pQClAm9uOejdEr1EE83rkuzsbKyLieFeIMfM6Z4oOP5FD8VswdyLEuRNZ+E5y5tbDmo06A2haF6X0AEa4F1gCepW6GFuqpQtWPKixKzZ01Vv0SjCqMaI5nUJ9X1qk5wWhboWnmJq0PtOQfOxQ7hXX8EdT0lPQEKMukpLDYSfr29PI6kdUrtam4XHx+aUWK5iSqn5JQet413Q/syAa/dOcc/Zm6PF0oULuDpYgqLMw929p5F0YJ3QFEvNsxI8p0zGrsxkrmJKaQqcDt3hfXjQeJ07TlBr6C5UWZ4OcgwXOifRvC6hwkMPUB6f7EhFUnJsd2NtyoWrhVzFlKDEiwTNYTrnR9pNXD3NIZtE85TJsw4jaut7Vj57UeJFU6rq/kBLm8qNsS3y6OlNrgJqqSo9yFo4a16UoAWmhRbVcLw0tTzE9fu/cZVRSn3kAugytqJed4c7LkELQOeIU/evtBmbUV1XylXMGjfKC7q8qG/AjX/PcM8h6P6G9qaBMVASW/NUiRfvPano3/C0Jmry1JoXKTwbm+8PHuNMRWmePo57D7qURK4XKTwpDcRbDk6xlqfSprj97s1e591vuILOzo7BbaAkcnlKrzZ0McvQZHjYfYy8/7SZ/+l80AsvT5+G+qHl9jXUPDjPftc8KBv84WlNpDyl1yIfrtewLVNcvIa1adTlPDfhaU3IU6vXLEfsBxq2y6HGOTz87f+HcaYSFhLSvVclQ2Xfiz6vQi+UaANLW583Jk1S/r1iICQnJweJiYl2odFo4CsYbA/BwcHqP9MpFa1Wy1VcDWlpaTh06JBdODQS6NP6YEBUxzHCm3AgENVxjPAmHAhEdRwjQ4VHIUOFRyGiOo4R3oQDgaiOY4Q34UAgquMYoX844L3EVUNCQgIrHPbisMIj95ZdKfTNkP4Xzh4Gde87cDJs2H+YM+01rb3cwwAAAABJRU5ErkJggg==" id="n28" x="1749.166618347168" y="1447.1666107177734" width="80" height="80" prefix="QM" group="g8" /><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABQdJREFUaEPtms9LXFcUx/0H3KWrdBWhVTcmJiRxaNQhAY0QM12YlLYmbZUkNsUxIWPRjVFSE4jOppNNZza1QotCC9pCiZvioi0uUoQkIM1G6EKykm5cnvp5P4KTHt+8H3fevFIPfDdz5953v/fce37cc+sO5EC8ZXl5Waanpy18dPWqnO/uLsN7ly+/al9cXJTt7W1xuiZXmOT8/LxF6I1Dh+RSJiN3c3cszBW+lJ+/+7YMC8WvXrX37xJ+8/Bhi3ipVJKtra1kEd7Y2LCIMcnB/g8tQi+fPZW/X/wZGBC/OTAgDUeOSObiRVlbW6st2c3NTbl+7Zq0trRYxLRJR8HS3NfSeeYdS7vr6+vxkt3Z2ZHPR0el9ehRKeXz6gRNAu22nTxpLWgs5xbtpTs6JD81GXpLhgULmjp9WjgeznTMC+cj3d4uv/70ozqJOPB8dVU628/I8tKSeaLFYlG6z52TF7//pn48Tvz1xxO59G5GZh4+NEcUgoP9/bFvz0oYvzUiX9y7F53o6u726O3pSRxBF1d2Le/iwkJ4ohiZ1KlT1vbQPpAEsPgco1D+FFONFX2ysqIOniRgJzCIKMWZvj/BAeOftEGTiF9++F7SnZ3+SRJd4Hy1wZIMYmWSAoeGt7AirIw2UJKBD209dkyIyBwqurASrIg2yH8Bt4eG5FGh4E0y1dZW04hGA8E/wbrW9jowQs1NTftrM4lnERfR9PZbgSItz7NJhn43l1M71gr5yUm5deO62rYfCOTJWBxa5ZI0gxNGi4D/NzQ0/JskjrS5sVHtVCtMj4/LWHZYbauE7rNnhZDUoWcLF0ncs2gdagG0gRbDxsxj2azMzs6Wk7TP4x21Qy3AOeQ8am1+oJ5LfojjKsMPomoR4HK4CHPo2cIPfn1RtRFVi4DEgujHoWdLUoIA5tB24oTaFgSkh1yROvRsweQGNdXVQF9vr7Hsp76+vpwkqq117mhKi4DzzC2+Q88WahNc3Wsd4oJJLZKREMM69GwJa11vfvKxNaDWFgQYvQtdXWpbGKAwFOfQs2ViYsKKMLQOXmCLd6XTkYmyTU0aPtVPUkmi0KJ1qAQIRiHKFmWram1hgcJQnEPPlqhplks0jPEyrUWwb7rFQY2y7ejbkUoFmjDbauCD99W2sMCy4iPVxJlKVdRIAyeMRv0QDZtKVQLbn9tGh1a5kJqQomgdg8Av0TAJsR9QCKbi7dAqF9TLljWxsi7R/XxvtbTIuM1Njd7leG66uPHSBggKiOL7tMA/SkLsBeqmHDuHji4mtQlYWdzDXqKMHTWV0uBLi65QJaJapA0UBq8TNZFKaRgbycrMzExlgq6YTr0gytZlO1VDi+wOz/tWTSiFURIzPZnjLS1ypa9PbYsCKs+hSux0orM2aFjg/DE4Jhfv9qdDUqhUGvAS6vKUrbXBk4BHDx5Idng4PEFXGITBtI/UEkvfzElm16A504wmHGaelbEttI/VAvmpKYtgIEPjR9j3vT3nLSevfTgOcJZxb6O5nFlye2Xl8WPrsZDp1MgPyHKw+JFee/gVnn3hRykrREnN/AIfSKiJH4z91ST1Ez782eCA8UAbcCyIYvhGxepxtaVULFqlMrJx/GAUwhCjsswu4c0rYZpx4xJFuG7g8gjCvFMlPnVfKWvEIeS2F+7ftxaJjB5Lzi5JFDlNODukPO57c4hzo70XEHLbR7JZ/89TDuR/K3V1/wCEZDB0Nw5OJAAAAABJRU5ErkJggg==" id="n29" x="1749.166618347168" y="1702.833267211914" width="80" height="80" prefix="KC" group="g8" /></g><g><text x="54.166664123535156" y="615.6666412353516" class="group-label" id="g1" index="0">DM-1 Order Capture and Channel</text><text x="1689.166618347168" y="2121.1665802001953" class="group-label" id="g2" index="0">DM-2 Inventory and Availability</text><text x="1079.9999694824219" y="389.49998474121094" class="group-label" id="g3" index="0">DM-3 Order Orchestration and Sourcing</text><text x="2298.333267211914" y="242.16665649414062" class="group-label" id="g4" index="0">DM-4 Fulfilment and Delivery</text><text x="1416.6666259765625" y="2682.4998931884766" class="group-label" id="g5" index="0">DM-5 Returns and Settlement</text><text x="743.3333129882812" y="3124.833206176758" class="group-label" id="g6" index="0">DM-6 Pricing and Promotion</text><text x="54.166664123535156" y="3597.166519165039" class="group-label" id="g7" index="0">GP-7 Shared Technical Services</text><text x="1689.166618347168" y="1121.4999542236328" class="group-label" id="g8" index="0">GP-8 Metrics and Key</text><text x="1689.166618347168" y="1137.4999542236328" class="group-label" id="g8" index="1">Decisions</text><text x="154.16666412353516" y="1649.4999389648438" text-anchor="middle" fill="#4682b4" font-size="16" id="n1" index="0">UI-1 Channel Access</text><text x="154.16666412353516" y="1665.4999389648438" text-anchor="middle" fill="#4682b4" font-size="16" id="n1" index="1">Surfaces</text><text x="362.49999237060547" y="1649.4999389648438" text-anchor="middle" fill="#4682b4" font-size="16" id="n2" index="0">SI-1 Order Intake API</text><text x="570.8333206176758" y="1649.4999389648438" text-anchor="middle" fill="#4682b4" font-size="16" id="n3" index="0">AS-1 Order Validation</text><text x="570.8333206176758" y="1665.4999389648438" text-anchor="middle" fill="#4682b4" font-size="16" id="n3" index="1">and Enrichment</text><text x="843.3333129882812" y="773.6666412353516" text-anchor="middle" fill="#4682b4" font-size="16" id="n4" index="0">DS-1 Order Master Data</text><text x="1789.166618347168" y="2544.833236694336" text-anchor="middle" fill="#4682b4" font-size="16" id="n5" index="0">AS-2 Availability</text><text x="1789.166618347168" y="2560.833236694336" text-anchor="middle" fill="#4682b4" font-size="16" id="n5" index="1">Calculation (ATP)</text><text x="1789.166618347168" y="2279.1665802001953" text-anchor="middle" fill="#4682b4" font-size="16" id="n6" index="0">AS-3 Inventory</text><text x="1789.166618347168" y="2295.1665802001953" text-anchor="middle" fill="#4682b4" font-size="16" id="n6" index="1">Reservation</text><text x="2061.6666107177734" y="2289.1665802001953" text-anchor="middle" fill="#4682b4" font-size="16" id="n7" index="0">DS-2 Network Inventory</text><text x="2061.6666107177734" y="2305.1665802001953" text-anchor="middle" fill="#4682b4" font-size="16" id="n7" index="1">Position</text><text x="2061.6666107177734" y="2544.833236694336" text-anchor="middle" fill="#4682b4" font-size="16" id="n8" index="0">CA-1 Availability Cache</text><text x="1179.9999694824219" y="773.6666412353516" text-anchor="middle" fill="#4682b4" font-size="16" id="n9" index="0">PS-1 Order Lifecycle</text><text x="1179.9999694824219" y="789.6666412353516" text-anchor="middle" fill="#4682b4" font-size="16" id="n9" index="1">Orchestration</text><text x="1516.6666259765625" y="547.4999847412109" text-anchor="middle" fill="#4682b4" font-size="16" id="n10" index="0">AS-4 Sourcing and</text><text x="1516.6666259765625" y="563.4999847412109" text-anchor="middle" fill="#4682b4" font-size="16" id="n10" index="1">Allocation</text><text x="1789.166618347168" y="557.4999847412109" text-anchor="middle" fill="#4682b4" font-size="16" id="n11" index="0">AS-5 Order Split and</text><text x="1789.166618347168" y="573.4999847412109" text-anchor="middle" fill="#4682b4" font-size="16" id="n11" index="1">Routing</text><text x="1516.6666259765625" y="803.1666412353516" text-anchor="middle" fill="#4682b4" font-size="16" id="n12" index="0">TR-1 Reserve and Commit</text><text x="1516.6666259765625" y="819.1666412353516" text-anchor="middle" fill="#4682b4" font-size="16" id="n12" index="1">Transaction</text><text x="2061.6666107177734" y="557.4999847412109" text-anchor="middle" fill="#4682b4" font-size="16" id="n13" index="0">DS-3 Fulfilment Plan</text><text x="2061.6666107177734" y="573.4999847412109" text-anchor="middle" fill="#4682b4" font-size="16" id="n13" index="1">Data</text><text x="2398.333267211914" y="557.4999847412109" text-anchor="middle" fill="#4682b4" font-size="16" id="n14" index="0">AS-6 Fulfilment Task</text><text x="2398.333267211914" y="573.4999847412109" text-anchor="middle" fill="#4682b4" font-size="16" id="n14" index="1">Dispatch</text><text x="2606.6665954589844" y="911.4999694824219" text-anchor="middle" fill="#4682b4" font-size="16" id="n15" index="0">DS-4 Shipment and</text><text x="2606.6665954589844" y="927.4999694824219" text-anchor="middle" fill="#4682b4" font-size="16" id="n15" index="1">Parcel Data</text><text x="2606.6665954589844" y="400.1666564941406" text-anchor="middle" fill="#4682b4" font-size="16" id="n16" index="0">SI-2 Warehouse and</text><text x="2606.6665954589844" y="416.1666564941406" text-anchor="middle" fill="#4682b4" font-size="16" id="n16" index="1">Store Interface</text><text x="2606.6665954589844" y="655.8333129882812" text-anchor="middle" fill="#4682b4" font-size="16" id="n17" index="0">SI-3 Carrier Booking</text><text x="2606.6665954589844" y="671.8333129882812" text-anchor="middle" fill="#4682b4" font-size="16" id="n17" index="1">Interface</text><text x="1516.6666259765625" y="2850.4998931884766" text-anchor="middle" fill="#4682b4" font-size="16" id="n18" index="0">AS-7 Return</text><text x="1516.6666259765625" y="2866.4998931884766" text-anchor="middle" fill="#4682b4" font-size="16" id="n18" index="1">Authorization and</text><text x="1516.6666259765625" y="2882.4998931884766" text-anchor="middle" fill="#4682b4" font-size="16" id="n18" index="2">Disposition</text><text x="1789.166618347168" y="2840.4998931884766" text-anchor="middle" fill="#4682b4" font-size="16" id="n19" index="0">AS-8 Refund and</text><text x="1789.166618347168" y="2856.4998931884766" text-anchor="middle" fill="#4682b4" font-size="16" id="n19" index="1">Settlement Posting</text><text x="2061.6666107177734" y="2840.4998931884766" text-anchor="middle" fill="#4682b4" font-size="16" id="n20" index="0">DS-5 Return and Credit</text><text x="2061.6666107177734" y="2856.4998931884766" text-anchor="middle" fill="#4682b4" font-size="16" id="n20" index="1">Data</text><text x="843.3333129882812" y="3282.833206176758" text-anchor="middle" fill="#4682b4" font-size="16" id="n21" index="0">AS-9 Price, Promotion</text><text x="843.3333129882812" y="3298.833206176758" text-anchor="middle" fill="#4682b4" font-size="16" id="n21" index="1">and Tax Resolution</text><text x="1179.9999694824219" y="3282.833206176758" text-anchor="middle" fill="#4682b4" font-size="16" id="n22" index="0">DS-6 Catalog, Price and</text><text x="1179.9999694824219" y="3298.833206176758" text-anchor="middle" fill="#4682b4" font-size="16" id="n22" index="1">Promotion Data</text><text x="1789.166618347168" y="3755.166519165039" text-anchor="middle" fill="#4682b4" font-size="16" id="n23" index="0">MG-1 Order Event</text><text x="1789.166618347168" y="3771.166519165039" text-anchor="middle" fill="#4682b4" font-size="16" id="n23" index="1">Contracts</text><text x="1516.6666259765625" y="3971.3331756591797" text-anchor="middle" fill="#4682b4" font-size="16" id="n24" index="0">SB-1 Event Broker</text><text x="1516.6666259765625" y="3987.3331756591797" text-anchor="middle" fill="#4682b4" font-size="16" id="n24" index="1">Service</text><text x="154.16666412353516" y="3794.666519165039" text-anchor="middle" fill="#4682b4" font-size="16" id="n25" index="0">TS-1 Idempotency and</text><text x="154.16666412353516" y="3810.666519165039" text-anchor="middle" fill="#4682b4" font-size="16" id="n25" index="1">Duplicate Control</text><text x="1789.166618347168" y="4010.8331756591797" text-anchor="middle" fill="#4682b4" font-size="16" id="n26" index="0">TS-2 Customer</text><text x="1789.166618347168" y="4026.8331756591797" text-anchor="middle" fill="#4682b4" font-size="16" id="n26" index="1">Notification Service</text><text x="1789.166618347168" y="1295.4999542236328" text-anchor="middle" fill="#4682b4" font-size="16" id="n27" index="0">RQ-1 Functional</text><text x="1789.166618347168" y="1311.4999542236328" text-anchor="middle" fill="#4682b4" font-size="16" id="n27" index="1">Requirements</text><text x="1789.166618347168" y="1551.1666107177734" text-anchor="middle" fill="#4682b4" font-size="16" id="n28" index="0">QM-1 Quality Metrics</text><text x="1789.166618347168" y="1806.833267211914" text-anchor="middle" fill="#4682b4" font-size="16" id="n29" index="0">KC-1 Key Architectural</text><text x="1789.166618347168" y="1822.833267211914" text-anchor="middle" fill="#4682b4" font-size="16" id="n29" index="1">Choices</text></g><g><text x="1380.4166297912598" y="10" text-anchor="middle" fill="transparent" font-size="20" font-family="Arial, sans-serif" class="title" id="60828144718" area="Functional">Omnichannel Order Management - Functional View</text></g></g></svg>
+</div>
+
+
+
+
+
+
+   
+
+
+
+  
+    <script>
+      document.getElementById("zoomIn").addEventListener("click", () => {
+        zoomIn();
+      });
+      document.getElementById("zoomOut").addEventListener("click", () => {
+        zoomOut();
+      });
+      document.getElementById("resetZoom").addEventListener("click", () => {
+        resetZoom();
+      });
+      document.getElementById("saveAsPNG").addEventListener("click", () => {
+        saveAsPNG();
+      });
+      document
+        .getElementById("copyToClipboard")
+        .addEventListener("click", () => {
+          copyToClipboard();
+        });
+      document
+        .getElementById("exportGraphToXML")
+        .addEventListener("click", () => {
+          exportGraphToXML();
+        });
+        document
+        .getElementById("saveAsPDF")
+        .addEventListener("click", () => {
+          saveAsPDF();
+        });
+        document
+        .getElementById("exportGraphToJSON")
+        .addEventListener("click", () => {
+          exportGraphToJSON();
+        });
+        
+        
+
+document.getElementById('toggle').addEventListener('click', ()=>{
+  toggleView();
+});
+
+
+function toggleView() {
+  var divButton = document.getElementById("toggle");
+ var archText = document.getElementById("archText");
+ var btnZoomIn = document.getElementById("zoomIn");
+ var btnZoomOut = document.getElementById("zoomOut");
+ var btnReset = document.getElementById("resetZoom");
+ var btnCopy = document.getElementById("copyToClipboard");
+ var btnPNG = document.getElementById("saveAsPNG");
+ var btnExport = document.getElementById("exportGraphToXML");
+ var btnData = document.getElementById("exportGraphToJSON");
+
+ if (archText.style.display === "none") {
+  archText.style.display = "block";
+  divButton.textContent = "View";
+  btnZoomIn.style.color = "darkgray";
+  btnZoomIn.disabled = true;
+  btnZoomOut.style.color = "darkgray";
+  btnZoomOut.disabled = true;
+  btnReset.style.color = "darkgray";
+  btnReset.disabled = true;
+  btnCopy.style.color = "darkgray";
+  btnCopy.disabled = true;
+  btnPNG.style.color = "darkgray";
+  btnPNG.disabled = true;
+  btnExport.style.color = "darkgray";
+  btnExport.disabled = true;
+  btnData.style.color = "darkgray";
+  btnData.disabled = true;
+ } else {
+  archText.style.display = "none";
+  divButton.textContent = "Properties";
+  btnZoomIn.style.color = "white";
+  btnZoomIn.disabled = false;
+  btnZoomOut.style.color = "white";
+  btnZoomOut.disabled = false;
+  btnReset.style.color = "white";
+  btnReset.disabled = false;
+  btnCopy.style.color = "white";
+  btnCopy.disabled = false;
+  btnPNG.style.color = "white";
+  btnPNG.disabled = false;
+  btnExport.style.color = "white";
+  btnExport.disabled = false;
+  btnData.style.color = "white";
+  btnData.disabled = false;
+ }
+}
+
+
+
+   
+    </script>
+
+<style>
+#graph {
+    shape-rendering: optimizeSpeed; /* Faster rendering, slightly less crisp */
+  }
+  #graph g.viewport {
+    will-change: transform; /* Hint to browser */
+  }
+  
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  #title {
+    height: 20px;
+    line-height: 20px;
+    padding-left: 15px;
+    background: #f3f3f3;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  #canvas {
+    width: 100%;
+    height: 100%; 
+   /* height: calc(100% - 40px); */
+    /*  height:100%;*/
+   
+  }
+  
+  svg {
+    width: 100%;
+    height: 100%;
+   
+  }
+  
+  :root {
+    --top-h: 20px;
+  }
+  .topbar {
+    height: var(--top-h);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+    background: #0a66c2;
+    color: #fff;
+  }
+  
+  .tooltip {
+    position: absolute;
+    background: #111;
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 30;
+    display: none;
+  }
+  
+  .tool-btn {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    padding: 2px 2px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  
+  .tool-btn {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .tool-btn::after {
+    content: attr(data-tooltip);
+    visibility: hidden;
+    opacity: 0;
+    background: #000;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+    white-space: nowrap;
+    position: absolute;
+    z-index: 999;
+    top: 100%;
+    left: 100%;
+    margin-top: 5px;
+    margin-left: -100%;
+    pointer-events: none;
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+  
+  .tool-btn:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+</style>
+
+<script>
+
+const svg=document.getElementById("graph");let scale=1,panX=0,panY=0,isDragging=!1,startX,startY,viewport=svg.querySelector("g.viewport");if(!viewport){viewport=document.createElementNS("http://www.w3.org/2000/svg","g");for(viewport.classList.add("viewport");svg.firstChild;)viewport.appendChild(svg.firstChild);svg.appendChild(viewport)}function updateTransform(){viewport.setAttribute("transform",`translate(${panX}, ${panY}) scale(${scale})`)}
+function disableSelection(){svg.style.userSelect="none";svg.style.webkitUserSelect="none";svg.style.mozUserSelect="none";svg.style.msUserSelect="none";svg.setAttribute("unselectable","on");document.body.style.userSelect="none";document.body.style.webkitUserSelect="none"}function enableSelection(){}
+svg.addEventListener("wheel",a=>{a.preventDefault();var b=svg.getBoundingClientRect();const c=a.clientX-b.left;b=a.clientY-b.top;const d=(b-panY)/scale;a=Math.min(Math.max(scale*(0<a.deltaY?.9:1.1),.1),10);panX=c-(c-panX)/scale*a;panY=b-d*a;scale=a;updateTransform()},{passive:!1});svg.addEventListener("mousedown",a=>{0===a.button&&(isDragging=!0,startX=a.clientX-panX,startY=a.clientY-panY,svg.style.cursor="grabbing",disableSelection())});
+window.addEventListener("mousemove",a=>{isDragging&&(panX=a.clientX-startX,panY=a.clientY-startY,updateTransform())});window.addEventListener("mouseup",()=>{isDragging&&(isDragging=!1,svg.style.cursor="grab")});window.addEventListener("mouseleave",()=>{isDragging&&(isDragging=!1,svg.style.cursor="grab")});svg.addEventListener("selectstart",a=>a.preventDefault());
+function zoomIn(){const a=svg.clientWidth/2,b=svg.clientHeight/2,c=(a-panX)/scale,d=(b-panY)/scale;scale=Math.min(1.2*scale,10);panX=a-c*scale;panY=b-d*scale;updateTransform()}function zoomOut(){const a=svg.clientWidth/2,b=svg.clientHeight/2,c=(a-panX)/scale,d=(b-panY)/scale;scale=Math.max(.8*scale,.1);panX=a-c*scale;panY=b-d*scale;updateTransform()}function resetZoom(){scale=1;panY=panX=0;updateTransform()}svg.style.cursor="grab";
+
+</script>
+<script>
+
+function exportGraphToXML(){var g=document.getElementById("graph");g=convertSvgToGraphXml(g.outerHTML);var d=new Blob([g],{type:"application/xml"});d=URL.createObjectURL(d);const e=document.createElement("a");e.href=d;e.download="archview.xml";document.body.appendChild(e);e.click();document.body.removeChild(e);URL.revokeObjectURL(d);return g}
+function convertSvgToGraphXml(g){function d(a){return null==a?"":String(a).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}function e(a,b){a=Array.from(h.querySelectorAll(b));a.sort((c,k)=>{c=parseInt(c.getAttribute("index")||"0",10);k=parseInt(k.getAttribute("index")||"0",10);return c-k});return a.map(c=>c.textContent.trim()).join(" ")}const h=(new DOMParser).parseFromString(g,"image/svg+xml"),l=[];h.querySelectorAll("image[prefix]").forEach(a=>{const b=a.id,
+c=e(b,`text[id="${b}"]:not(.group-label)`);l.push({id:b,type:"node",x:a.getAttribute("x")||"0",y:a.getAttribute("y")||"0",w:a.getAttribute("width")||"0",h:a.getAttribute("height")||"0",key:a.getAttribute("prefix")||"",title:c})});const m=[];h.querySelectorAll("rect.group-box, rect.groupbox").forEach(a=>{const b=a.id,c=e(b,`text.group-label[id="${b}"]`);m.push({id:b,type:"group",x:a.getAttribute("x")||"0",y:a.getAttribute("y")||"0",w:a.getAttribute("width")||"0",h:a.getAttribute("height")||"0",bd:a.getAttribute("style")||
+"solid",title:c})});const n=[];h.querySelectorAll('path[id^="e"]').forEach(a=>{var b=a.id;const c=b.replace(/^e/,""),k=(a.getAttribute("marker-end")||"").includes("arrow")?"0":"1",p=a.getAttribute("source")||"";a=a.getAttribute("target")||"";b=(b=h.querySelector(`text[id="${b}"]`))?b.textContent.trim():"";"g"!=p[0]&&"g"!=a[0]&&n.push({id:c,from:p,to:a,straight:k,offset:"0",label:b})});let f="<graph>\n";f+="  <nodes>\n";l.forEach(a=>{f+=`    <node id="${a.id}" type="${a.type}" x="${a.x}" y="${a.y}" w="${a.w}" h="${a.h}" key="${d(a.key)}" title="${d(a.title)}"/>\n`});
+m.forEach(a=>{f+=`    <node id="${a.id}" type="${a.type}" x="${a.x}" y="${a.y}" w="${a.w}" h="${a.h}" bd="${d(a.bd)}" title="${d(a.title)}"/>\n`});f+="  </nodes>\n";f+="  <links>\n";n.forEach(a=>{f+=`    <link id="${a.id}" from="${a.from}" to="${a.to}" straight="${a.straight}" offset="${a.offset}" label="${d(a.label)}"/>\n`});f+="  </links>\n";return f+="</graph>"};
+
+
+
+
+</script>
+<script>
+
+
+
+// ─── CONFIGURABLE RESOLUTION MULTIPLIER ─────────────────────────────────────
+
+const RESOLUTION_SCALE = 1;
+
+// ─── CONFIGURABLE BORDER SPACING (SVG user units) ───────────────────────────
+// Add space around the detected content edges. 
+// Set to 0 for a tight crop; increase for padding. Negative values will crop inward.
+const BORDER_LEFT   = 40;
+const BORDER_RIGHT  = 40;
+const BORDER_TOP    = 40;
+const BORDER_BOTTOM = 40;
+
+// ─── GET SVG ELEMENT ─────────────────────────────────────────────────────────
+/*
+const svg = document.getElementById('graph');
+
+if (!svg) {
+    console.error('SVG element with id="graph" not found');
+}
+*/
+// ─── INLINE IMAGES (no HTTP dependency) ──────────────────────────────────────
+
+function inlineImages(svgElement) {
+    const clone = svgElement.cloneNode(true);
+    const images = clone.querySelectorAll('image');
+    
+    for (const img of images) {
+        const href = img.getAttributeNS('http://www.w3.org/1999/xlink', 'href') 
+                  || img.getAttribute('href');
+        
+        if (!href || href.startsWith('data:')) continue;
+        
+        const domImg = Array.from(document.querySelectorAll('img')).find(
+            i => i.src === href || i.src.endsWith(href.split('/').pop())
+        );
+        
+        if (domImg && domImg.complete && domImg.naturalWidth > 0) {
+            try {
+                const canvas = document.createElement('canvas');
+                canvas.width = domImg.naturalWidth;
+                canvas.height = domImg.naturalHeight;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(domImg, 0, 0);
+                const dataUrl = canvas.toDataURL('image/png');
+                img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', dataUrl);
+                img.setAttribute('href', dataUrl);
+                continue;
+            } catch (e) {
+                console.warn('Canvas tainted for image:', href);
+            }
+        }
+        
+        const svgImg = svgElement.querySelector(`image[*|href="${href}"], image[href="${href}"]`);
+        if (svgImg) {
+            const bbox = svgImg.getBBox();
+            if (bbox.width > 0 && bbox.height > 0) {
+                try {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = bbox.width;
+                    canvas.height = bbox.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(svgImg, 0, 0, bbox.width, bbox.height);
+                    const dataUrl = canvas.toDataURL('image/png');
+                    img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', dataUrl);
+                    img.setAttribute('href', dataUrl);
+                } catch (e) {
+                    console.warn('Cannot inline SVG image:', href);
+                }
+            }
+        }
+    }
+    
+    return clone;
+}
+
+// ─── NORMALIZE FONTS ───────────────────────────────────────────────────────
+
+function normalizeFonts(svgElement) {
+    const textElements = svgElement.querySelectorAll('text, tspan');
+    textElements.forEach(el => {
+        if (!el.getAttribute('font-family')) {
+            el.setAttribute('font-family', 'Arial, Helvetica, sans-serif');
+        }
+        if (!el.getAttribute('font-size')) {
+            el.setAttribute('font-size', '14px');
+        }
+        if (!el.getAttribute('text-anchor')) {
+            el.setAttribute('text-anchor', 'start');
+        }
+    });
+    
+    if (!svgElement.getAttribute('font-family')) {
+        svgElement.setAttribute('font-family', 'Arial, Helvetica, sans-serif');
+    }
+}
+
+// ─── SERIALIZE SVG ──────────────────────────────────────────────────────────
+
+function serializeSVG(svgElement) {
+    const clone = inlineImages(svgElement);
+    normalizeFonts(clone);
+    
+    if (!clone.getAttribute('xmlns')) {
+        clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    }
+    
+    // Inline CSS styles
+    let inlineStyles = '';
+    for (const sheet of document.styleSheets) {
+        try {
+            for (const rule of sheet.cssRules) {
+                inlineStyles += rule.cssText + '\n';
+            }
+        } catch (e) {}
+    }
+    
+    if (inlineStyles) {
+        const styleEl = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+        styleEl.textContent = inlineStyles;
+        clone.insertBefore(styleEl, clone.firstChild);
+    }
+    
+    // ─── Determine tight content bounds ───
+    let bbox;
+    try {
+        bbox = svgElement.getBBox();
+    } catch (e) {
+        const rect = svgElement.getBoundingClientRect();
+        bbox = { x: 0, y: 0, width: rect.width, height: rect.height };
+    }
+    
+    // Apply configurable border spacing around the detected content
+    const viewX      = bbox.x - BORDER_LEFT;
+    const viewY      = bbox.y - BORDER_TOP;
+    const viewWidth  = bbox.width + BORDER_LEFT + BORDER_RIGHT;
+    const viewHeight = bbox.height + BORDER_TOP + BORDER_BOTTOM;
+    
+    // Force the clone to render only the content + borders
+    clone.setAttribute('viewBox', `${viewX} ${viewY} ${viewWidth} ${viewHeight}`);
+    clone.setAttribute('width',  viewWidth);
+    clone.setAttribute('height', viewHeight);
+    clone.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    
+    // Remove percentage-based sizing that causes canvas rendering issues
+    clone.style.width  = '';
+    clone.style.height = '';
+    
+    const serializer = new XMLSerializer();
+    return { svgString: serializer.serializeToString(clone), viewWidth, viewHeight };
+}
+
+// ─── RENDER SVG TO HIGH-RES CANVAS ───────────────────────────────────────────
+
+async function svgToCanvas(svgElement) {
+    const { svgString, viewWidth, viewHeight } = serializeSVG(svgElement);
+    const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(svgBlob);
+    
+    const img = new Image();
+    
+    const canvasWidth  = viewWidth  * RESOLUTION_SCALE;
+    const canvasHeight = viewHeight * RESOLUTION_SCALE;
+    
+    const canvas = document.createElement('canvas');
+    canvas.width  = canvasWidth;
+    canvas.height = canvasHeight;
+    const ctx = canvas.getContext('2d');
+    
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    
+    return new Promise((resolve, reject) => {
+        img.onload = () => {
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+            
+            ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+            URL.revokeObjectURL(url);
+            resolve({ canvas, viewWidth, viewHeight });
+        };
+        
+        img.onerror = () => {
+            URL.revokeObjectURL(url);
+            reject(new Error('Failed to render SVG to canvas'));
+        };
+        
+        img.src = url;
+    });
+}
+
+// ─── SAVE AS HIGH-RES PNG ─────────────────────────────────────────────────────
+
+async function saveAsPNG(filename = 'archview.png') {
+    if (!svg) return;
+    const { canvas } = await svgToCanvas(svg);
+    const pngUrl = canvas.toDataURL('image/png');
+    
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = pngUrl;
+    link.click();
+}
+
+// ─── COPY TO CLIPBOARD (high-res PNG) ───────────────────────────────────────
+
+async function copyToClipboard() {
+    if (!svg) return;
+    
+    if (!navigator.clipboard || !window.isSecureContext) {
+        alert('Clipboard requires HTTPS or localhost. Use Save as PNG instead.');
+        return;
+    }
+    
+    try {
+        const { canvas } = await svgToCanvas(svg);
+        
+        const pngBlob = await new Promise((resolve) => {
+            canvas.toBlob(resolve, 'image/png');
+        });
+        
+        if (!pngBlob) {
+            throw new Error('Canvas toBlob returned null');
+        }
+        
+        await navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': pngBlob })
+        ]);
+        
+        console.log('Copied high-res PNG to clipboard');
+        
+    } catch (err) {
+        console.error('Copy failed:', err);
+        alert('Copy failed: ' + err.message + '\nUse Save as PNG instead.');
+    }
+}
+
+
+
+
+
+</script>
+
+
+
+<script>
+
+//const archTextHTML =document.getElementById("archText").outerHTML; 
+
+// source of truth, for json, pdf and text display
+const ATHTML = '<br><div style="padding:2px;margin:0px;background-color:azure; font-size: 14px;color:brown; margin-right:20px; "><center><b>View Properties</b></center></div><div style="font-size: 12px;padding:10px;"><br><table border=1 ><thead><tr><th>Property</th><th>Attribute</th></tr></thead><tbody><tr><td>Title</td><td>Omnichannel Order Management - Functional View</td></tr><tr><td>Area</td><td>Functional View</td></tr><tr><td>Description</td><td><p>This is the <b>functional view</b> of a large-scale omnichannel order management solution for a multi-format retailer selling through stores, distribution centres, marketplaces, and digital channels across several countries. It shows the primary functional building blocks (application logic, data services, technical services, interfaces) organised into six functional domains, plus the shared technical services and the metrics that constrain them. Infrastructure, deployment topology, and vendor products are deliberately excluded and belong to the operational view.</p><p><b>Significant requirements and metrics</b> - 1) a single network-wide view of sellable inventory, so any channel can promise stock in any node; 2) an order can be sourced, split, re-sourced, and amended until it ships, without double-selling; 3) returns are accepted at any node regardless of where the order was placed. The quality attributes measured on this view are availability-response latency, oversell rate, sourcing accuracy (planned node versus actual fulfilling node), order-state consistency, and cost per order line. The functional hotspots are AS-2 (read-heavy and latency-critical at peak, because availability calls scale with browse traffic rather than order traffic), TR-1 (the correctness hotspot), and PS-1 (the coupling hotspot).</p><p><b>Concrete governance actions</b> - TS-1 enforces idempotency and duplicate control on every channel intake and every event replay, which is what makes retry-heavy traffic safe rather than merely tolerated. MG-1 fixes the order event contracts so domains cannot couple to the internal structure of other domains. Human oversight sits on two exception queues, AS-5 for routing exceptions and AS-7 for return disposition, which are the places where automated decisions are routinely and legitimately overridden. The governance measures themselves are carried in QM-1 and KC-1 rather than scattered across the view.</p><p><b>Architectural techniques</b> - domain partitioning by order lifecycle stage (capture, availability, orchestration, fulfilment, returns, pricing), with orchestration as an explicit mediator instead of a chain of point-to-point calls. The applied styles are application architecture inside the domains, integration architecture for the SI interfaces out to warehouse, store, and carrier systems, and an event-driven overlay (MG-1 with SB-1) for state propagation. This partitioning was chosen because the channel surfaces and the physical fulfilment estate both change far faster than the order lifecycle itself, so the lifecycle is the stable core to organise around. Data services stay inside their owning domain, with DS-2 as the single inventory truth and CA-1 as the read-scaling mechanism in front of it.</p><p><b>Key trade-offs</b> - 1) a single inventory truth (DS-2) with a cache (CA-1) rather than per-channel inventory copies: accepts cache staleness and a shared write hotspot in order to eliminate cross-channel oversell; 2) a central orchestration domain rather than choreography between domains: accepts PS-1 as a coupling hotspot in exchange for one auditable place where order state and amendment rules live; 3) synchronous reservation at capture rather than an optimistic promise reconciled later: accepts higher capture latency to protect the customer promise.</p><p><b>Note on edge complexity</b> - this view carries nine cross-domain node links. Eight of the nine terminate on the orchestration domain, which is the intended mediator, so the complexity is structural rather than accidental. The improvement direction is to move the inventory, fulfilment, and returns links onto MG-1 contracts through SB-1, so those domains subscribe to order state instead of being called by it. That would reduce PS-1 to publishing plus two synchronous calls, reservation and fulfilment dispatch.</p></td></tr><tr><td>Status</td><td>Working model - functional view, iteration 2 of an ESA model in progress, generated 2026-08-26. Owner: solution architecture. Reviewers: order management product owner, supply chain operations, channel engineering. Readiness: element mapping agreed at domain level; DS-2 ownership and the TR-1 consistency boundary are still open.</td></tr><tr><td>Implication</td><td><p><b>Assumptions</b> - the inventory estate is already instrumented well enough to publish node-level stock positions in near real time; warehouse and point-of-sale systems expose callable interfaces; and pricing with promotion is a separate upstream solution that this view consumes rather than owns. If reliable node-level stock is not available, the single-truth choice in KC-1 collapses and this view needs rework rather than refinement.</p><p>This functional view is one area of the ESA model. To complete the model:</p><p><b>Business View</b> - the capability decomposition behind omnichannel selling, showing which capabilities are new, uplifted, or unchanged, and the value drivers that justify the investment.</p><p><b>Use-case View</b> - the significant scenarios walked end to end: buy-online-pickup-in-store, ship-from-store, split shipment, amend after payment, and cross-channel return. This is where the functional design is actually validated, and where the AS-5 and AS-7 exception paths get tested.</p><p><b>Metrics View</b> - oversell rate, availability latency, sourcing accuracy, and cost per line mapped against the elements that carry them, with governance measures and scalable action points made explicit instead of summarised inside QM-1.</p><p><b>Operational View</b> - deployment topology, regional partitioning, data residency, scaling of the availability read path, and failover for DS-2. Peak-trading behaviour of CA-1 and AS-2 cannot be judged from a functional view.</p><p><b>Overall-solution View</b> - an architecture overview positioning these six domains against the existing estate (ERP, warehouse management, point of sale, marketplaces) and showing the migration plateaus, since this solution lands into a live estate rather than a greenfield.</p><p><b>Uncertain</b> - whether returns and settlement should remain a single domain is not settled. Refund posting has a finance-system affinity that the rest of the domain does not, and splitting it would add a seventh domain plus another cross-domain link. This view keeps them together and flags it for the next iteration.</p></td></tr><tr><td>Timestamp</td><td>08/28/26, 14:47:18</td></tr></tbody></table></div><br><br><div style="padding:2px;margin:0px;background-color:azure; font-size: 14px;color:brown; margin-right:20px; "><center><b>Element Properties</b></center></div><br><div style="font-size: 12px;padding:10px;"><table border=1 ><thead><tr><th>Element</th><th>Property</th><th>Attribute</th></tr></thead><tbody><tr><td>UI-1 Channel Access Surfaces</td><td>Channels</td><td>web storefront, mobile app, store point of sale, call centre, marketplace</td></tr><tr><td></td><td>Entry pattern</td><td>every channel enters through one intake contract</td></tr><tr><td></td><td>Excluded from this view</td><td>channel-specific user experience design</td></tr><tr><td>DS-1 Order Master Data</td><td>Owns</td><td>order header, order line, payment authorization reference, promised dates</td></tr><tr><td></td><td>Consistency</td><td>order state is authoritative here, other domains subscribe</td></tr><tr><td></td><td>Retention</td><td>live orders plus the settlement window</td></tr><tr><td>AS-2 Availability Calculation (ATP)</td><td>Function</td><td>compute sellable quantity across nodes from position less reservations less safety stock</td></tr><tr><td></td><td>Read profile</td><td>very high volume, latency critical</td></tr><tr><td></td><td>Peak concern</td><td>availability calls scale with browse traffic, not order traffic</td></tr><tr><td>DS-2 Network Inventory Position</td><td>Role</td><td>single network-wide inventory truth</td></tr><tr><td></td><td>Grain</td><td>item by node by status</td></tr><tr><td></td><td>Fed by</td><td>store counts, distribution centre receipts, in-transit, reservations</td></tr><tr><td></td><td>Open issue</td><td>domain ownership not yet agreed</td></tr><tr><td>CA-1 Availability Cache</td><td>Purpose</td><td>absorb browse-time availability reads</td></tr><tr><td></td><td>Staleness budget</td><td>seconds, tightened for low-stock lines</td></tr><tr><td></td><td>Fallback</td><td>read through to DS-2 when confidence is low</td></tr><tr><td>PS-1 Order Lifecycle Orchestration</td><td>Function</td><td>own the order state machine, amendment and cancellation rules, exception routing</td></tr><tr><td></td><td>Role</td><td>explicit mediator between domains</td></tr><tr><td></td><td>Known hotspot</td><td>eight of the nine cross-domain links terminate here</td></tr><tr><td>AS-4 Sourcing and Allocation</td><td>Function</td><td>choose fulfilment nodes against cost, capacity, distance and promise</td></tr><tr><td></td><td>Inputs</td><td>availability, node capacity, carrier cutoffs, margin rules</td></tr><tr><td></td><td>Override</td><td>operations can pin or exclude nodes</td></tr><tr><td>AS-5 Order Split and Routing</td><td>Function</td><td>split a multi-line order across nodes and route each shipment</td></tr><tr><td></td><td>Human oversight</td><td>routing exception queue</td></tr><tr><td></td><td>Re-source trigger</td><td>node rejection, stock shortfall, carrier cutoff missed</td></tr><tr><td>TR-1 Reserve and Commit Transaction</td><td>Scope</td><td>reserve inventory then commit the fulfilment plan as one unit</td></tr><tr><td></td><td>Guarantee</td><td>no oversell on a committed line</td></tr><tr><td></td><td>Compensation</td><td>release the reservation on capture failure or timeout</td></tr><tr><td></td><td>Open boundary</td><td>whether commit spans pricing is undecided</td></tr><tr><td>SI-2 Warehouse and Store Interface</td><td>Reaches</td><td>warehouse management, store fulfilment application, point of sale</td></tr><tr><td></td><td>Direction</td><td>task out, confirmation and stock movement back</td></tr><tr><td></td><td>Variability</td><td>store estate interfaces differ by format and country</td></tr><tr><td>AS-7 Return Authorization and Disposition</td><td>Function</td><td>authorize a return at any node and decide disposition</td></tr><tr><td></td><td>Dispositions</td><td>restock as sellable, transfer, repair, write off</td></tr><tr><td></td><td>Human oversight</td><td>exception queue for high-value and fraud-flagged returns</td></tr><tr><td>AS-9 Price, Promotion and Tax Resolution</td><td>Function</td><td>resolve price, promotion allocation and tax for an order line</td></tr><tr><td></td><td>Consumed not owned</td><td>pricing is an upstream solution</td></tr><tr><td></td><td>Used at</td><td>capture for the promise, and again at refund for the credit basis</td></tr><tr><td>MG-1 Order Event Contracts</td><td>Contracts</td><td>order accepted, plan committed, line shipped, line returned, credit posted</td></tr><tr><td></td><td>Purpose</td><td>stop domains coupling to the internal structure of other domains</td></tr><tr><td></td><td>Versioning</td><td>additive only, consumers tolerate unknown fields</td></tr><tr><td>TS-1 Idempotency and Duplicate Control</td><td>Applies to</td><td>channel intake and every event replay</td></tr><tr><td></td><td>Mechanism</td><td>client-supplied key plus stored outcome</td></tr><tr><td></td><td>Why</td><td>channel retries and broker redelivery are routine, not exceptional</td></tr><tr><td>RQ-1 Functional Requirements</td><td>Requirement 1</td><td>any channel can promise stock in any node</td></tr><tr><td></td><td>Requirement 2</td><td>an order can be sourced, split, re-sourced and amended until it ships</td></tr><tr><td></td><td>Requirement 3</td><td>returns accepted at any node regardless of where the order was placed</td></tr><tr><td></td><td>Requirement 4</td><td>no oversell on a committed line</td></tr><tr><td>QM-1 Quality Metrics</td><td>Oversell rate</td><td>committed lines that cannot be fulfilled</td></tr><tr><td></td><td>Availability latency</td><td>response time of the ATP read path at peak</td></tr><tr><td></td><td>Sourcing accuracy</td><td>planned node versus actual fulfilling node</td></tr><tr><td></td><td>Order state consistency</td><td>lag between domain state and DS-1</td></tr><tr><td></td><td>Cost per order line</td><td>processing plus fulfilment overhead</td></tr><tr><td>KC-1 Key Architectural Choices</td><td>Choice 1</td><td>single inventory truth with a cache rather than per-channel copies</td></tr><tr><td></td><td>Rationale 1</td><td>eliminates cross-channel oversell, accepts a shared write hotspot</td></tr><tr><td></td><td>Choice 2</td><td>central orchestration mediator rather than domain choreography</td></tr><tr><td></td><td>Rationale 2</td><td>one auditable place for order state and amendment rules, accepts coupling on PS-1</td></tr><tr><td></td><td>Choice 3</td><td>synchronous reservation at capture rather than an optimistic promise</td></tr><tr><td></td><td>Rationale 3</td><td>protects the customer promise, accepts higher capture latency</td></tr></tbody></table></div><br><br><div style="padding:2px;margin:0px;background-color:azure; font-size: 14px;color:brown; margin-right:20px; "><center><b>Element Prefix Notation</b></center></div><br><div style="font-size: 12px;padding:10px;"><table border="1"><tr><th>Prefix</th><th>Element Name</th><th>Relevance</th><th>Category</th></tr><tr><td>AS</td><td>App Logic</td><td>Base</td><td>Functional / Application</td></tr><tr><td>CA</td><td>Cache Service</td><td>Assistive</td><td>Integration &amp; Scalability</td></tr><tr><td>DS</td><td>Data Service</td><td>Base</td><td>Functional / Application</td></tr><tr><td>KC</td><td>Key Choice</td><td>Base</td><td>Intent &amp; Metrics</td></tr><tr><td>MG</td><td>Message Service</td><td>Assistive</td><td>Integration &amp; Scalability</td></tr><tr><td>PS</td><td>Process</td><td>Base</td><td>General</td></tr><tr><td>QM</td><td>Quality Metric</td><td>Assistive</td><td>DevOps</td></tr><tr><td>RQ</td><td>Requirement</td><td>Base</td><td>Intent &amp; Metrics</td></tr><tr><td>SB</td><td>Service Broker</td><td>Assistive</td><td>Integration &amp; Scalability</td></tr><tr><td>SI</td><td>Interface</td><td>Base</td><td>Functional / Application</td></tr><tr><td>TR</td><td>Transaction</td><td>Assistive</td><td>Software Design</td></tr><tr><td>TS</td><td>Technical Service</td><td>Base</td><td>Functional / Application</td></tr><tr><td>UI</td><td>Access Interface</td><td>Base</td><td>Functional / Application</td></tr></table><br><br><br><br><br></div>';
+
+async function saveAsPDF(filename = 'archview.pdf', htmlContentAbove = '', htmlContentBelow = ATHTML) {
+  if (!svg) return;
+  
+  const { canvas, viewWidth, viewHeight } = await svgToCanvas(svg);
+  const imgData = canvas.toDataURL('image/png');
+  
+  // ─── jsPDF branch ───
+  if (typeof jspdf !== 'undefined' || typeof window.jspdf !== 'undefined') {
+      const { jsPDF } = window.jspdf || jspdf;
+      const aspectRatio = viewHeight / viewWidth;
+      const pdfWidth = 210;
+      const pdfHeight = pdfWidth * aspectRatio;
+      const pdf = new jsPDF({
+          orientation: pdfWidth > pdfHeight ? 'landscape' : 'portrait',
+          unit: 'mm',
+          format: [pdfWidth, Math.max(pdfHeight, 10)]
+      });
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save(filename);
+      return;
+  }
+  
+  // ─── Print window fallback ───
+  const printWindow = window.open('', '_blank');
+  if (!printWindow) {
+      alert('Popup blocked! ');
+      return;
+  }
+  
+  const doc = printWindow.document;
+  
+  // Write a minimal, static HTML shell (no dynamic content here)
+  doc.open();
+  doc.write(
+      '<!DOCTYPE html>' +
+      '<html>' +
+      '<head><meta charset="utf-8"><title>' + filename + '</title></head>' +
+      '<body></body>' +
+      '</html>'
+  );
+  doc.close();
+  
+  // Inject styles
+  const style = doc.createElement('style');
+  style.textContent = [
+      '@page { size: auto; margin: 15mm; }',
+      'body { margin: 0; padding: 0px; font-family: Arial, sans-serif; text-align: center; }',
+      '.content-block { text-align: left; max-width: 800px; margin: 0 auto 10px auto; }',
+      'img { max-width: 100%; height: auto; display: block; margin: 0 auto 0px auto; }',
+      'table {border-collapse: collapse;font-family: Arial, sans-serif;font-size: 12px;width:96%}',
+      'th {background: #eee;}',
+      'th, td {border: 1px solid #ccc;padding: 3px 6px;text-align: left;vertical-align:top;}',
+      '@media print {.content-block,.graph-container,table,th,td, div {-webkit-print-color-adjust: exact !important;print-color-adjust: exact !important;}'
+  ].join(' ');
+  doc.head.appendChild(style);
+  
+  // Helper: add HTML string safely via innerHTML
+  function addHTML(htmlString) {
+      if (!htmlString) return;
+      const div = doc.createElement('div');
+      div.className = 'content-block';
+      div.innerHTML = htmlString;
+      doc.body.appendChild(div);
+  }
+  
+  // Build page: content above → image → content below
+  addHTML(htmlContentAbove);
+  
+  const img = doc.createElement('img');
+  img.src = imgData;
+  doc.body.appendChild(img);
+  
+  addHTML(htmlContentBelow);
+  
+  // Trigger print
+  printWindow.focus();
+  setTimeout(() => printWindow.print(), 250);
+}
+
+
+
+</script>
+
+<script>
+
+function stripHtmlTags(html) {
+   return html.replace(/(<([^>]+)>)/gi, "");
+
+  }
+
+function exportGraphToJSON() {
+
+  console.log("ATHTML: nothing yet " + "");
+  console.log("ATHTML: " + ATHTML);
+  // var txtArchText = ATHTML;
+     var txtArchText = stripHtmlTags(ATHTML);
+    // var txtArchText = stripHtmlTags(ATHTML);
+    if (txtArchText != '' && txtArchText.indexOf("View Description") != -1){
+      txtArchText = txtArchText.replaceAll("View Description", "View Description: ");
+    }
+
+
+    // try {
+    //   console.log("1====");
+
+    //   document.addEventListener("DOMContentLoaded", function() {
+    //     // var element = document.getElementById("myElement");
+
+    //    txtArchText =  document.getElementById('archText').textContent;
+    //   });
+    //    console.log("2====");
+    // } catch (error) {
+    //   console.log("3====");
+    // }
+
+  const svg = document.getElementById('graph');
+  if (!svg) {
+    console.error('SVG element with id "graph" not found');
+    return;
+  }
+
+  const result = {
+warning:'', 
+    title: '',
+    id: '',
+    area: '',
+    description:'',
+    groups: [],
+    nodes: [],
+    edges: []
+  };
+
+  // --- Parse Title ---
+  const titleEl = svg.querySelector('text.title');
+  if (titleEl) {
+result.warning = "This json file is for data record only, NOT as an input file for the ArchView generation.";
+    result.title = titleEl.textContent.trim();
+    result.id = titleEl.getAttribute('id') || '';
+    result.area = titleEl.getAttribute('area') || '';
+    result.description = txtArchText || '';
+  }
+
+  // --- Parse Groups ---
+  const groupBoxes = svg.querySelectorAll('rect.group-box');
+  const groupMap = new Map(); // id -> group object
+  const groupLabelParts = new Map(); // id -> {index, text}[]
+
+  groupBoxes.forEach(rect => {
+    const id = rect.getAttribute('id');
+    const style = rect.getAttribute('style') || '';
+    groupMap.set(id, { id, label: '', style });
+  });
+
+  // Collect group-label parts by index
+  const groupLabels = svg.querySelectorAll('text.group-label');
+  groupLabels.forEach(labelEl => {
+    const id = labelEl.getAttribute('id');
+    const index = labelEl.getAttribute('index');
+    if (groupMap.has(id) && index !== null) {
+      if (!groupLabelParts.has(id)) {
+        groupLabelParts.set(id, []);
+      }
+      groupLabelParts.get(id).push({
+        index: parseInt(index, 10),
+        text: labelEl.textContent.trim()
+      });
+    }
+  });
+
+  // Build final groups with concatenated labels
+  groupMap.forEach((groupObj, id) => {
+    if (groupLabelParts.has(id)) {
+      const parts = groupLabelParts.get(id);
+      parts.sort((a, b) => a.index - b.index);
+      groupObj.label = parts.map(p => p.text).join(' ');
+    }
+    result.groups.push(groupObj);
+  });
+
+  // --- Parse Nodes ---
+  const images = svg.querySelectorAll('image');
+  const nodeMap = new Map(); // id -> node object
+  const nodeLabelParts = new Map(); // id -> {index, text}[]
+
+  images.forEach(img => {
+    const id = img.getAttribute('id');
+    const group = img.getAttribute('group') || '';
+    const image = img.getAttribute('prefix') || '';
+    nodeMap.set(id, { id, group, image, label: '' });
+  });
+
+  const allTexts = svg.querySelectorAll('text');
+  allTexts.forEach(textEl => {
+    const id = textEl.getAttribute('id');
+    const index = textEl.getAttribute('index');
+    const className = textEl.getAttribute('class') || '';
+
+    if (className === 'title' || className === 'group-label') return;
+
+    if (nodeMap.has(id) && index !== null) {
+      if (!nodeLabelParts.has(id)) {
+        nodeLabelParts.set(id, []);
+      }
+      nodeLabelParts.get(id).push({
+        index: parseInt(index, 10),
+        text: textEl.textContent.trim()
+      });
+    }
+  });
+
+  nodeMap.forEach((nodeObj, id) => {
+    if (nodeLabelParts.has(id)) {
+      const parts = nodeLabelParts.get(id);
+      parts.sort((a, b) => a.index - b.index);
+      nodeObj.label = parts.map(p => p.text).join(' ');
+    }
+    result.nodes.push(nodeObj);
+  });
+
+  // --- Parse Edges ---
+  const edgePaths = svg.querySelectorAll('path.edge');
+  const edgeMap = new Map(); // id -> edge object
+
+  edgePaths.forEach(path => {
+    const id = path.getAttribute('id');
+    const source = path.getAttribute('source') || '';
+    const target = path.getAttribute('target') || '';
+    const link = path.getAttribute('link') || '';
+    const hasArrow = path.getAttribute('marker-end') === 'url(#arrow)';
+    const type = hasArrow ? 'arrow' : 'line';
+
+    edgeMap.set(id, { id, source, target, type, label: '', link });
+    result.edges.push(edgeMap.get(id));
+  });
+
+  allTexts.forEach(textEl => {
+    const id = textEl.getAttribute('id');
+    const className = textEl.getAttribute('class') || '';
+    const index = textEl.getAttribute('index');
+
+    if (className === 'title' || className === 'group-label') return;
+    if (index !== null) return;
+
+    if (edgeMap.has(id)) {
+      edgeMap.get(id).label = textEl.textContent.trim();
+    }
+  });
+
+  // --- Download JSON ---
+  const jsonStr = JSON.stringify(result, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'archview.json';
+  document.body.appendChild(a);
+  a.click();
+
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+
+</script>
+
+
+
+<div id="archText" style="overflow:auto;top:25px;left:0px;width:100%; height:100%;z-index: 2; background-color:white; padding:10px; display:none; position:absolute;"><div id="output"></div></div><script>document.getElementById('output').innerHTML = ATHTML;</script>
+
+
+
+
+
+<script src="https://diagram.a-esa.com/archview/avcnt.asp"></script>
+</body>
+</html>
+
