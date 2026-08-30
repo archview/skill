@@ -1,8 +1,6 @@
 # Installing ArchView
 
-There are many AI apps or channels for you to install an AI skill. Pick whichever of these matches how you use AI.
-
-Here are some for your reference.
+There are many AI apps or channels for you to install an AI skill. Pick whichever of these matches how you use AI. Here are some for your reference.
 
 ## Claude AI
 
