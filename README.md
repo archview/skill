@@ -34,15 +34,15 @@ Here is a very brief guide:
 
 1. Gather what you have: ArchView works from whatever you already have, none of this is required, but the more context you give, the better the first draft
 
-2. Ask for the view: Just describe what you want in plain language. For example: "Create an architecture view for this system: [paste description or attach a diagram]"
+2. **Ask for the view: Just describe what you want in plain language. For example: "Create an architecture view for this system: [paste description or attach a diagram]"**
 
 3. Say how much guidance you want (optional)
 
 4. Tell AI your scope, if it matters
 
-5. Review the output
+5. **Review the output**
 
-6. Ask for changes
+6. Ask for changes, if any
 
 7. Build out the full model, if you need one
 
