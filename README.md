@@ -60,4 +60,6 @@ For a bit more detailed step-by-step instruction, see this [link ](docs/step-by-
 
 ## Feedback welcome
 
-This is an early version of ArchView, and it's still evolving. If something looks off, an element mapping feels wrong,, or you just have an idea for how it could work better, please share it. Your feedback is genuinely what shapes where this goes next.
+This is an early version of ArchView, and it's still evolving. 
+Archview is primarily designed to provide architectural clarity rather than visual appeal. However, the layout and visual style will be further refined and enhanced in future releases.
+Your feedback is genuinely what shapes where this goes next.
