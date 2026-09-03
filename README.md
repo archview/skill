@@ -8,7 +8,6 @@ It's built for large or complex solutions that need a clear, maintainable view, 
 
 ## ArchView Skill Download
 
-- [archview.zip download link](download/archview.zip)
 - [archview.zip download](https://archview.github.io/skill/download/archview.zip)
 
 ## Installing ArchView
