@@ -62,9 +62,9 @@ For a bit more detailed step-by-step instruction, see this [link ](docs/step-by-
 
 ## Layout Limitation and Customization
 
-Because of the auto-layout, elements in the output view may not appear in the expected order or position. However, you can customize the layout by moving groups or nodes to their desired positions, improving the layering order and overall visual presentation.
+Because of the auto-layout, elements in the output view may not appear in the expected order or position. However, you can customize the layout by moving groups or nodes to their desired positions directly in the generated HTML. , improving the layering order and overall visual presentation.
 Archview is primarily designed to provide architectural clarity rather than visual appeal. However, the layout and visual style will be further refined and enhanced in future releases.
 
-## Feedback welcome
+## Feedback Welcome
 
 This is an early version of ArchView, and it's still evolving. Your feedback is welcome.
