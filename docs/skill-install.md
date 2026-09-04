@@ -2,6 +2,8 @@
 
 There are many AI apps or channels for you to install an AI skill. Pick whichever of these matches how you use AI. Here are some for your reference.
 
+> Note: You may need to start a new chat session for the skill to take effect after uploading the skill ZIP file.
+
 ## Grok (SpaceXAI)
 
 In grok.com (browser or desktop)
