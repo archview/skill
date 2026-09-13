@@ -2,7 +2,7 @@
 
 ## What it does
 
-ArchView generates IT architecture diagrams and model views in a node-image style, primarily at the enterprise solution architecture (ESA) level, the space between enterprise architecture and solution design. Ask for an architecture diagram, a solution architecture view, an enterprise architecture model, or something like "visualize this system's architecture," and AI will map your solution onto a set of ESA elements (services, data stores, gateways, roles, and so on), generate a self-contained HTML view with zoom, PNG/PDF export, and a properties panel.
+ArchView generates IT architecture diagrams and model views in a *node-image* style, primarily at the *enterprise solution architecture (ESA)* level, the space between enterprise architecture and solution design. Ask for an architecture diagram, a solution architecture view, an enterprise architecture model, or something like "visualize this system's architecture," and AI will map your solution onto a set of ESA elements (services, data stores, gateways, roles, and so on), generate a self-contained HTML view with zoom, PNG/PDF export, and a properties panel.
 
 It's built for large or complex solutions that need a clear, maintainable view, not for detailed-design or code-level diagrams (class diagrams, sequence diagrams), and not for quick informal sketches.
 
@@ -51,6 +51,18 @@ If your solution is highly complex or you need a more refined result, you can ta
 > You can have different detail-level views. For example, a lean-mode view with fewer elements, a succinct outline view, a view with detailed architectural analysis, or a full set of model views.
 
 For a bit more detailed step-by-step instruction, see this [link ](docs/step-by-step-instructions.md).
+
+## Adaptive Mode
+
+There are two ArchView Modes to choose from. The AI will select the ArchView mode to best fit your needs.
+
+|                    |                                                                                   |                                                                                                                                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mode               | Lean                                                                              | Standard                                                                                                                                                                                          |
+| Audience           | General users, developers, users for simple diagramming without much<br> thinking | Experienced architects and solution experts who require an architecture<br> model beyond a simple diagram or view                                                                                 |
+| Scope              | Agile thinking, simple diagramming                                                | ESA model, or profile views that cover EA, business, software<br> architecture or design, integration, enterprise AI, infrastructure,<br> microservice, event architecture, etc.                  |
+| Level of details   | Simple, concise                                                                   | Different level of thinking,from basic description and properties to<br> detailed architectural metrics, tradeoffs, techniques, and governance,<br> adapted to each solution's context and style. |
+| Number of elements | 4-12 elements                                                                     | Selected elements from 32 base elements plus assistive elements,<br> according to architectural style and solution requirements                                                                   |
 
 ## Samples
 
