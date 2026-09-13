@@ -56,8 +56,8 @@ For a bit more detailed step-by-step instruction, see this [link ](docs/step-by-
 
 There are two ArchView Modes to choose from. The AI will select the ArchView mode to best fit your needs.
 
-| ------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mode               | Lean                                                                              | Standard                                                                                                                                                                                          |
+| Mode               | Lean                                                         | Standard                                                     |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Audience           | General users, developers, <br> users for simple diagramming | Experienced architects and solution experts who require an architecture model beyond a simple diagram or view                                                                                 |
 | Scope              | Agile thinking, simple diagramming                                                | ESA model, or profile views that cover EA, business, software architecture or design, integration, enterprise AI, infrastructure, microservice, event architecture, etc.                  |
 | Level of details   | Simple, concise                                                                   | Different level of thinking,from basic description and properties to detailed architectural metrics, tradeoffs, techniques, and governance, adapted to each solution's context and style. |
