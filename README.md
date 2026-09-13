@@ -56,13 +56,12 @@ For a bit more detailed step-by-step instruction, see this [link ](docs/step-by-
 
 There are two ArchView Modes to choose from. The AI will select the ArchView mode to best fit your needs.
 
-|                    |                                                                                   |                                                                                                                                                                                                   |
 | ------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Mode               | Lean                                                                              | Standard                                                                                                                                                                                          |
-| Audience           | General users, developers, users for simple diagramming without much<br> thinking | Experienced architects and solution experts who require an architecture<br> model beyond a simple diagram or view                                                                                 |
-| Scope              | Agile thinking, simple diagramming                                                | ESA model, or profile views that cover EA, business, software<br> architecture or design, integration, enterprise AI, infrastructure,<br> microservice, event architecture, etc.                  |
-| Level of details   | Simple, concise                                                                   | Different level of thinking,from basic description and properties to<br> detailed architectural metrics, tradeoffs, techniques, and governance,<br> adapted to each solution's context and style. |
-| Number of elements | 4-12 elements                                                                     | Selected elements from 32 base elements plus assistive elements,<br> according to architectural style and solution requirements                                                                   |
+| Audience           | General users, developers, <br> users for simple diagramming | Experienced architects and solution experts who require an architecture model beyond a simple diagram or view                                                                                 |
+| Scope              | Agile thinking, simple diagramming                                                | ESA model, or profile views that cover EA, business, software architecture or design, integration, enterprise AI, infrastructure, microservice, event architecture, etc.                  |
+| Level of details   | Simple, concise                                                                   | Different level of thinking,from basic description and properties to detailed architectural metrics, tradeoffs, techniques, and governance, adapted to each solution's context and style. |
+| Number of elements | 4-12 elements                                                                     | Selected elements from 32 base elements plus assistive elements, according to architectural style and solution requirements                                                                   |
 
 ## Samples
 
