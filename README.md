@@ -54,6 +54,8 @@ For a bit more detailed step-by-step instruction, see this [link ](docs/step-by-
 
 ## Samples
 
+- [archview lean mode screenshot](samples/ai-distributed-arch-lean-mode.png)
+
 - [archview output HTML page](samples/archview-oms-functional.html)
   
 - [archview microservice arch pdf](samples/archview-ms-arch-sample.pdf)
