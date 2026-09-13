@@ -6,7 +6,7 @@ ArchView generates IT architecture diagrams and model views in a *node-image* st
 
 It's built for large or complex solutions that need a clear, maintainable view, not for detailed-design or code-level diagrams (class diagrams, sequence diagrams), and not for quick informal sketches.
 
-## ArchView Skill Download
+## ArchView Skill Free Download
 
 - [archview.zip download](https://archview.github.io/skill/download/archview.zip)
 
